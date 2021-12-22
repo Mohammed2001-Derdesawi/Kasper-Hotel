@@ -30,7 +30,7 @@ Route::get('/readmore/taxi', function () {
 })->name('readmore.taxi');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', function () {
     return view('userdashboard.index');
 })->name('dashboard');
@@ -38,7 +38,7 @@ Route::get('/dashboard/allhotel', function () {
     return view('userdashboard.allhotels');
 })->name('allhotels');
 
-Route::get('/dashboard/contactus', function () {
+Route::get('/dashboard/contact', function () {
     return view('userdashboard.contactus');
 })->name('contactus');
 

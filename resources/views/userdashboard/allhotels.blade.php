@@ -1,7 +1,6 @@
 @extends('layouts.userlayouts')
 @section('styles')
-<link rel="stylesheet" href="{{asset('userdashboard/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('userdashboard/css/style-hotel.css')}}">
+
     <link rel="shortcut icon" href="{{asset('userdashboard/fonts/fa-regular-400.ttf')}}" />
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/reset.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/plugins.css')}}">
@@ -22,6 +21,7 @@
 <!-- Map -->
 <!-- Map end -->
 
+     ahmed
 
                   <!--list-wrap-search  -->
                   <div class="list-wrap-search fl-wrap lws_mobile" id="lisfw">
