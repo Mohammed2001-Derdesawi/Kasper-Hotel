@@ -57,3 +57,6 @@ Route::get('/dashboard/hotel/view', function () {
 Route::get('/dashboard/hotel', function () {
     return view('userdashboard.hotel');
 })->name('hotel');
+Route::get('/dashboard/admin', function () {
+    return view('admindashboardlayout.main-page');
+})->name('admin');

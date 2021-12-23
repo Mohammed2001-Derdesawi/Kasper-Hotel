@@ -19,7 +19,15 @@ class Section extends Model
         return $this->hasMany(Content::class, 'section_id', 'id');
     }
 
-
+  /**
+     * Get all of the comments for the Content
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function buttons(): HasMany
+    {
+        return $this->hasMany(Button::class, 'section_id', 'id');
+    }
 
 
 }
