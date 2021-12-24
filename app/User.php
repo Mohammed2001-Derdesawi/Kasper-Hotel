@@ -49,6 +49,16 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
+    /**
+     * Get all of the comments for the Booked
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bookeds(): HasMany
+    {
+        return $this->hasMany(Booked::class, 'user_id', 'id');
+    }
+
 
 
 

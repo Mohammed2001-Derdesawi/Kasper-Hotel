@@ -19,8 +19,7 @@ class CreateContentsTable extends Migration
             $table->string("Image");
             $table->string("title");
             $table->longText("description");
-            $table->string("namebutton");
-            $table->unsignedInteger("manager_id");
+            $table->unsignedInteger("manager_id")->default('0');
             $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
 

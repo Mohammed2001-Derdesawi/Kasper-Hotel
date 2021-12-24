@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Content extends Model
 {
@@ -18,6 +19,16 @@ class Content extends Model
     public function section(): HasOne
     {
         return $this->hasOne(Section::class, 'section_id', 'id');
+    }
+
+    /**
+     * Get all of the comments for the Content
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function buttons(): HasMany
+    {
+        return $this->hasMany(Button::class, 'content_id', 'id');
     }
 
 }
