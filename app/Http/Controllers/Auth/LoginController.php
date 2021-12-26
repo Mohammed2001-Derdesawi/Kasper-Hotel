@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Providers\RouteServiceProvider;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -19,7 +25,13 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
+        return redirect()->route('index');
+    }
+
 
     /**
      * Where to redirect users after login.
@@ -28,11 +40,29 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+
+    protected function authenticated(Request $request, $user)
+    {
+        // alert('Welcome to our Website!','', 'success')->background('#fff')->position('center');
+        toast('Welcome to our Website!','success')->position('bottom-end')->background('#000');
+    }
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    // public function login(Request $request)
+    // {
+    //     $this->validateLogin($request);
+    //     if($this->attemptLogin($request))
+    //     {
+    //         // $request->session()->regenerate();
+    //         return redirect()->route('dashboard');
+    //     }
+    //     session()->flash('error',"Error in password or Email");
+    //      return redirect()->route('index');
+    // }
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

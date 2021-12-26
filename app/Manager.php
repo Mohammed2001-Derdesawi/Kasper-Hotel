@@ -12,20 +12,20 @@ class Manager extends Model
         'name', 'description', 'facebook','image','twitter','github',
     ];
 
-    /**
-     * The roles that belong to the Manager
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(Role::class, 'manager_role_table', 'manager_id', 'role_id');
-    }
-    /**
-     * Get all of the comments for the Manager
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+    // /**
+    //  * The roles that belong to the Manager
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    //  */
+    // public function roles(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Role::class, 'manager_role_table', 'manager_id', 'role_id');
+    // }
+    // /**
+    //  * Get all of the comments for the Manager
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class, 'manager_id', 'id');
