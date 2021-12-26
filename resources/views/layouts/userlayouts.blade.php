@@ -55,6 +55,7 @@
 
 </head>
 <!-- END HEAD -->
+
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid" id="home-dashboard">
 
     <div class="btn_direction" style="display: block;"><i class="fa fa-arrow-up direction"></i></div>
@@ -502,6 +503,7 @@
 
 });
     </script>
+     @include('sweetalert::alert')
 </body>
 
 </html>

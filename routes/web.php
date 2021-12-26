@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/index', function () {
     return view('maincustomersitelayouts.index');
 })->name('index');
+
 Route::get('/readmore/flight', function () {
     return view('maincustomersitelayouts.readmore-flight');
 })->name('readmore.flight');
@@ -31,32 +30,36 @@ Route::get('/readmore/taxi', function () {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', function () {
-    return view('userdashboard.index');
-})->name('dashboard');
-Route::get('/dashboard/allhotel', function () {
-    return view('userdashboard.allhotels');
-})->name('allhotels');
 
-Route::get('/dashboard/contact', function () {
-    return view('userdashboard.contactus');
-})->name('contactus');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('userdashboard.index');
+    })->name('dashboard');
+    Route::get('/dashboard/allhotel', function () {
+        return view('userdashboard.allhotels');
+    })->name('allhotels');
 
-Route::get('/dashboard/profile', function () {
-    return view('userdashboard.profile');
-})->name('profile');
-Route::get('/dashboard/profile/help', function () {
-    return view('userdashboard.helpprofile');
-})->name('profile.help');
-Route::get('/dashboard/profile/edit', function () {
-    return view('userdashboard.editprofile');
-})->name('profile.edit');
-Route::get('/dashboard/hotel/view', function () {
-    return view('userdashboard.hotelview');
-})->name('hotel.view');
-Route::get('/dashboard/hotel', function () {
-    return view('userdashboard.hotel');
-})->name('hotel');
-Route::get('/dashboard/admin', function () {
-    return view('admindashboardlayout.main-page');
-})->name('admin');
+    Route::get('/dashboard/contact', function () {
+        return view('userdashboard.contactus');
+    })->name('contactus');
+
+    Route::get('/dashboard/profile', function () {
+        return view('userdashboard.profile');
+    })->name('profile');
+    Route::get('/dashboard/profile/help', function () {
+        return view('userdashboard.helpprofile');
+    })->name('profile.help');
+    Route::get('/dashboard/profile/edit', function () {
+        return view('userdashboard.editprofile');
+    })->name('profile.edit');
+    Route::get('/dashboard/hotel/view', function () {
+        return view('userdashboard.hotelview');
+    })->name('hotel.view');
+    Route::get('/dashboard/hotel', function () {
+        return view('userdashboard.hotel');
+    })->name('hotel');
+    Route::get('/dashboard/admin', function () {
+        return view('admindashboardlayout.main-page');
+    })->name('admin');
+});
+

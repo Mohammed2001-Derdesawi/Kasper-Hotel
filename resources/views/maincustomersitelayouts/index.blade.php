@@ -11,6 +11,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
 />
+<meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Document</title>
   <link rel="stylesheet" href="{{asset("maincustomersiteresources/css/bootstrap.min.css")}}">
   <link rel="stylesheet" href="{{asset("maincustomersiteresources/webfonts/CormorantGaramond-Regular.ttf")}}">
@@ -22,9 +23,11 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+    {{-- @livewireStyles --}}
 </head>
 
 <body>
+    @include('sweetalert::alert')
 
   <!-- start icon top -->
   <div class="btn_direction"><i class="fa fa-arrow-up direction"></i></div>
@@ -57,10 +60,34 @@
             <li class="add-active"><a href="#managers-section">Managers</a></li>
             <li class="add-active"><a href="#locations-section">Locations</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="sign-up" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
-            <li><button  class="sign-in btn btn-danger"  data-toggle="modal" data-target="#myModal-up">Sign In</button></li>
-          </ul>
+
+
+
+         @guest
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="sign-up" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
+                <li><button  class="sign-in btn btn-danger"  data-toggle="modal"  data-target="#myModalup">Sign In</button></li>
+              </ul>
+
+              @endguest
+
+              @auth
+              <ul class="nav navbar-nav navbar-right">
+                <div class="" aria-labelledby="navbarDropdown">
+                    <a class="sign-in btn btn-danger" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+              </ul>
+
+              @endauth
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -646,21 +673,26 @@
              <!-- Start of Form Sign-in -->
              <div class="sign-in-form">
                <h1>Sign Up</h1>
-               <form method="POST" action="{{route("register")}}">
-                @csrf
+               <form method="POST" id="registerForm">
+                  @csrf
                  <label for="Email">Email</label>
-                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                 <input id="emailregister" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                 <span class="invalid-feedback " role="alert" id="emailRegisterError" style="color: red; font-size:17px; font-weight:500; padding-top:5px; display:block;">
+                    <strong></strong>
+                </span>
                  @error('email')
-                 <span class="invalid-feedback" role="alert">
+                 <span class="invalid-feedback form-contro" role="alert" style="color: red">
                      <strong>{{ $message }}</strong>
                  </span>
-             @enderror
+                @enderror
 
                  <label for="password">Password</label>
-                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                 <input id="passwordregister" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                 <span class="invalid-feedback" role="alert" id="passwordRegisterError" style="color: red; font-size:17px; font-weight:500; padding-top:5px; display:block;">
+                    <strong></strong>
+                </span>
                  @error('password')
-                     <span class="invalid-feedback" role="alert">
+                     <span class="invalid-feedback pd-4" role="alert" style="color: red">
                          <strong>{{ $message }}</strong>
                      </span>
                  @enderror
@@ -773,7 +805,7 @@
 
   <!-- end modal sign in -->
   <div class="modal-sign-up">
-    <div class="modal fade" id="myModal-up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModalup" tabindex="-1" role="dialog" aria-labelledby="myModalup" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -791,26 +823,29 @@
                <!-- Start of Form Sign-in -->
                <div class="sign-in-form">
                 <h1>Sign In</h1>
-               <form method="POST" action="{{ route('login') }}">
+               {{-- <form method="POST" action="{{ route('login') }}"> --}}
+                   <form  method="POST" id="LoginFrom">
+                    <span class="invalid-feedback" role="alert" id="emailError" style="color: red; font-size:17px; font-weight:500; padding-top:5px; display:block;">
+                        <strong></strong>
+                    </span>
+
+
                 @csrf
                  <label for="Email">Email</label>
-                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                 <input id="emailInput" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                 @error('email')
-                     <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                 @enderror
+
                  <label for="password">Password</label>
-                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                 <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                  @error('password')
-                     <span class="invalid-feedback" role="alert">
+                     <span class="invalid-feedback" role="alert" style="color: red">
                          <strong>{{ $message }}</strong>
                      </span>
                  @enderror
 
                  <input type="submit" value="Sign In" class="btn btn-block">
+
                  @if (Route::has('password.request'))
                  <a class="btn btn-link" href="{{ route('password.request') }}">
                      {{ __('Forgot Your Password?') }}
@@ -848,14 +883,97 @@
 
 
 
+  <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+  {{-- @if($errors->has('email') || $errors->has('password'))
+  <script>
+      console.log("احاااااااااااااااا");
+  $(function() {
+      $('#myModalup').modal({
+          show: true
+      });
+  });
+
+  </script> --}}
+  {{-- @endif --}}
+  <script type="text/javascript">
+    $.ajaxSetup({
+       headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+    });
+    </script>
+  <script>
+    $(function () {
+        $('#registerForm').submit(function (e) {
+            e.preventDefault();
+            let formData = $(this).serializeArray();
+            console.log(formData);
+            $(".invalid-feedback").children("strong").text("");
+            $("#registerForm input").removeClass("is-invalid");
+            $.ajax({
+                method: "POST",
+                headers: {
+                    Accept: "application/json"
+                },
+                url: "{{ route('register') }}",
+                data: formData,
+                success: () => window.location.assign("{{ route('logout') }}"),
+                error: (response) => {
+                    if(response.status === 422) {
+                        let errors = response.responseJSON.errors;
+                        Object.keys(errors).forEach(function (key) {
+                            $("#" + key + "RegisterError").addClass("is-invalid").text(errors[key][0]);
+                            $("#" + key + "RegisterError").children("strong").text(errors[key][0]);
+                        });
+                    } else {
+                        window.location.reload();
+                    }
+                }
+            })
+        });
+    })
+    </script>
+  <script>
+    $(function () {
+        $('#LoginFrom').submit(function (e) {
+            e.preventDefault();
+            let formData = $(this).serializeArray();
+            console.log(formData);
+            $(".invalid-feedback").children("strong").text("");
+            $("#LoginFrom input").removeClass("is-invalid");
+            $.ajax({
+                method: "POST",
+                headers: {
+                    Accept: "application/json"
+                },
+                url: "{{ route('login') }}",
+                data: formData,
+                success: () => window.location.assign("{{ route('dashboard') }}"),
+                error: (response) => {
+                    if(response.status === 422) {
+                        let errors = response.responseJSON.errors;
+                        Object.keys(errors).forEach(function (key) {
+                            $("#" + key + "Input").addClass("is-invalid");
+                            $("#" + key + "Error").children("strong").text(errors[key][0]);
+                            $("#" + key + "Error").children("strong").text(errors[key][1]);
+                        });
+                    } else {
+                        window.location.reload();
+                    }
+                }
+            })
+        });
+    })
+    </script>
+
+
+   {{-- <livewire:sign-in/> --}}
+
+  {{-- @livewireScripts --}}
+
+  <script type="text/javascript">
 
 
 
-
-
-
-
-
+   </script>
   <script src="{{asset("maincustomersiteresources/Js/jquery.js")}}"></script>
   <script src="{{asset("maincustomersiteresources/Js/bootstrap.min.js")}}"></script>
   <script src="{{asset("maincustomersiteresources/Js/swiper-bundle.min.js")}}"></script>
