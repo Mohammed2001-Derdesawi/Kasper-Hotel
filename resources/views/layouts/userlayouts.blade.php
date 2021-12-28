@@ -55,12 +55,9 @@
 
 </head>
 <!-- END HEAD -->
-
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid" id="home-dashboard">
 
     <div class="btn_direction" style="display: block;"><i class="fa fa-arrow-up direction"></i></div>
-
-
     <!-- BEGIN HEADER -->
    <div class="page-header navbar navbar-fixed-top">
     <!-- BEGIN HEADER INNER -->
@@ -308,7 +305,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item  ">
-                            <a href="{{route('allhotels')}}" class="nav-link ">
+                            <a href="{{route('hotel')}}" class="nav-link ">
                                 <span class="title">Book a Hotel Ticket</span>
                             </a>
                         </li>
@@ -476,7 +473,7 @@
   darkmode.showWidget();
     </script>
     <!-- BEGIN JS FILE -->
-    <script src="../js/myjs.js"></script>
+    {{--  <script src="../js/myjs.js"></script>  --}}
     <!-- END JS FILE -->
     <script>
         $(document).ready(function () {
@@ -503,7 +500,6 @@
 
 });
     </script>
-     @include('sweetalert::alert')
 </body>
 
 </html>
