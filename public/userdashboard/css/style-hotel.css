@@ -1,3 +1,5 @@
+
+
 *{
 
 	box-sizing: border-box;
@@ -361,6 +363,13 @@ a:hover , a:focus{
     background-color: #fa2c27;
     padding: 15px;
     border-radius: 5px!important;
+
+  }
+
+  .btn_photo_hotel button a{
+    font-size: 22px!important;
+    font-weight: 600;
+    letter-spacing: 0.6;
   }
 
   .btn_photo_hotel button a{
@@ -703,11 +712,7 @@ padding-right: 10px;
 }
 
 
-@media (min-width:320px) and (max-width:767px) {
-    .img_location img{
-        display: none;
-      }
-}
+
 
 .titil_location .btn_location .btn , .btn_Viewhotel{
     height: 50px;
