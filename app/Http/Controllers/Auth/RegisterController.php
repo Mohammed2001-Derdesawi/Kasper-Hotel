@@ -36,7 +36,7 @@ class RegisterController extends Controller
      * @var string
      */
 
-    protected $redirectTo = RouteServiceProvider::LOGOUT;
+    // protected $redirectTo = RouteServiceProvider::LOGOUT;
 
     public function register(Request $request)
     {

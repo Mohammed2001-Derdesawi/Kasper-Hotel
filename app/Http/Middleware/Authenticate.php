@@ -2,7 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+
 
 class Authenticate extends Middleware
 {
@@ -15,7 +19,9 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('index');
-        }
+            toast('You Must Login First','warning');
+           return '/';
     }
+
+}
 }

@@ -1,0 +1,74 @@
+
+.btn-edit{
+    transition: 0.999s linear;
+}
+.btn-edit i{
+    color: #fff !important;
+    transition: 0.999s linear;
+}
+
+.btn-edit:hover{
+    background-color: #fff !important;
+    color: hsl(240, 19%, 13%) !important;
+     border: none !important;
+
+}
+.btn-edit:hover i{
+    color: hsl(240, 19%, 13%) !important;
+}
+.permissions-table{
+    margin-top: 10px !important;
+}
+.btn-remove{
+    transition: 0.999s linear;
+    margin-left: 20px !important;
+}
+.btn-remove i{
+    transition: 0.999s linear;
+    color: #fff !important;
+}
+.btn-remove:hover{
+    background-color: #fff !important;
+    color: #fa2c27 !important;
+     border: none !important;
+
+
+}
+.btn-remove:hover i{
+
+    color: #fa2c27 !important;
+
+
+
+}
+.btn-add{
+    margin-top: 30px !important;
+    transition: 0.999s linear !important;
+}
+.addedRole label{
+    color: #fa2c27 !important;
+}
+.form-group .select2  {
+    width: 100% !important;
+}
+.dropzoneDragArea {
+    background-color: #fbfdff;
+    border: 1px dashed #c0ccda;
+    border-radius: 6px;
+    padding: 60px;
+    text-align: center;
+    margin-bottom: 15px;
+
+    cursor: pointer;
+}
+.dropzone .dz-message{
+    margin: 0;
+}
+.dropzone{
+
+    border-radius: 0px;
+    border: 0 !important;
+}
+
+
+

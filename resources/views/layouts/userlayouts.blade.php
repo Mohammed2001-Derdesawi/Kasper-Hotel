@@ -240,8 +240,22 @@
                             <li class="divider"> </li>
 
                             <li>
-                                <a href="page_user_login_1.html">
-                                    <i class="icon-key"></i> Log Out </a>
+                                <div class="nav_link_curson">
+                                    <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                       <i class="icon-key"></i> {{ __('Log Out')}}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+
+                                        @csrf
+                                    </form>
+                                </div>
+                             {{-- <form action="{{route('logout')}}" method="post">
+                                <a href="">
+                                     </a>
+                             </form> --}}
                             </li>
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->

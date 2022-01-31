@@ -906,6 +906,7 @@
             e.preventDefault();
             let formData = $(this).serializeArray();
             console.log(formData);
+
             $(".invalid-feedback").children("strong").text("");
             $("#registerForm input").removeClass("is-invalid");
             $.ajax({
@@ -936,7 +937,7 @@
         $('#LoginFrom').submit(function (e) {
             e.preventDefault();
             let formData = $(this).serializeArray();
-            console.log(formData);
+
             $(".invalid-feedback").children("strong").text("");
             $("#LoginFrom input").removeClass("is-invalid");
             $.ajax({

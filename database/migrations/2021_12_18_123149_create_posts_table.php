@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string("title");
             $table->string("image");
             $table->unsignedInteger("manager_id");
-
             $table->timestamps();
             $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
 

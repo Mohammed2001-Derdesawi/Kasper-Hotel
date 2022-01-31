@@ -10,7 +10,7 @@ class Post extends Model
 {
 
     protected $fillable = [
-        'title','image','manager_id','user_id',
+        'title','image','manager_id','text',
     ];
 
 

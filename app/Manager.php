@@ -2,15 +2,28 @@
 
 namespace App;
 
+use App\Notifications\ManagerLogin;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Manager extends Model
+class Manager extends Authenticatable
 {
+   use HasRoles,CanResetPassword,Notifiable;
+   protected $guard ='admin';
+
+
     protected $fillable = [
-        'name', 'description', 'facebook','image','twitter','github',
+        'name' ,'email', 'description', 'facebook','image','twitter','github','password',
     ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
 
     // /**
     //  * The roles that belong to the Manager
@@ -30,5 +43,29 @@ class Manager extends Model
     {
         return $this->hasMany(Post::class, 'manager_id', 'id');
     }
+    /**
+     * Get all of the hotels for the Manager
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function hotels(): HasMany
+    {
+        return $this->hasMany(Hotel::class, 'manager_id', 'id');
+    }
+
+    // public function notify($instance)
+    // {
+    //     $admins=Manager::role('Super Admin')->get();
+
+
+    //     foreach($admins as $admin)
+    //     {
+    //      $admin->notify(new ManagerLogin());
+    //     }
+
+    // }
+
+
+
 
 }

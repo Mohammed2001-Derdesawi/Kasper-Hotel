@@ -16,11 +16,13 @@ class CreateManagersTable extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string("password");
             $table->string("description");
-            $table->string("image");
+            $table->string("image")->nullable();
             $table->string("facebook");
             $table->string("twitter");
             $table->string("github");
+
             $table->timestamps();
         });
     }

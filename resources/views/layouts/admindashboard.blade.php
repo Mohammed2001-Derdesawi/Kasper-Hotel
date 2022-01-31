@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+@php
+    use Carbon\Carbon;
+@endphp
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 8
 Author: KeenThemes
@@ -12,7 +14,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<html lang="en">
+<html lang="en" >
 
 <!-- begin::Head -->
 
@@ -22,7 +24,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<title>Metronic | Dashboard</title>
 	<meta name="description" content="Updates and statistics">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!--begin::Fonts -->
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
@@ -127,6 +129,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<link rel="shortcut icon" href="{{ asset('admindashboard/media/logos/favicon.ico') }}" />
 
 	<!-- begin:: My Style css -->
+    @yield('styles')
 	<link rel="stylesheet" href="{{ asset('admindashboard/css/mystyle.css') }}">
 	<!-- end:: My Style css -->
 </head>
@@ -136,6 +139,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Body -->
 
 <body
+
 	class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Page -->
@@ -143,7 +147,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin:: Header Mobile -->
 	<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
 		<div class="kt-header-mobile__logo">
-			<a href="{{route('admin')}}">
+			<a href="{{route('admin.roles')}}">
 				<img alt="Logo" src="{{ asset('admindashboard/media/logos/logo-light.png') }}" />
 			</a>
 		</div>
@@ -171,7 +175,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!-- begin:: Aside -->
 				<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
 					<div class="kt-aside__brand-logo">
-						<a href="{{route('admin')}}">
+						<a href="{{route('admin.roles')}}">
 							<img alt="Logo" src="{{ asset('admindashboard/media/logos/logo-light.png') }}" />
 						</a>
 					</div>
@@ -219,7 +223,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1"
 						data-ktmenu-dropdown-timeout="500">
 						<ul class="kt-menu__nav ">
-							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="{{route('admin')}}"
+							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="{{route('admin.roles')}}"
 									class="kt-menu__link "><span class="kt-menu__link-icon"><svg
 											xmlns="http://www.w3.org/2000/svg"
 											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
@@ -239,21 +243,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<h4 class="kt-menu__section-text">Layout</h4>
 								<i class="kt-menu__section-icon flaticon-more-v2"></i>
 							</li>
-							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
-								data-ktmenu-submenu-toggle="hover"><a href="{{route('admin')}}"
-									class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z"
-													fill="#000000" />
-											</g>
-										</svg></span><span class="kt-menu__link-text">Home</span><i
-										class="kt-menu__ver-arrow"></i></a>
-							</li>
+
 
 							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
 								data-ktmenu-submenu-toggle="hover"><a href="javascript:;"
@@ -276,23 +266,25 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 									<ul class="kt-menu__subnav">
 										<li class="kt-menu__item " aria-haspopup="true"><a
-												href="{{route('admin')}}" class="kt-menu__link "><i
+												href="{{route('admin.roles')}}" class="kt-menu__link "><i
 													class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
 													class="kt-menu__link-text">Add Hotel</span></a></li>
 										<li class="kt-menu__item " aria-haspopup="true"><a
-												href="{{route('admin') }}" class="kt-menu__link "><i
+												href="{{route('admin.roles') }}" class="kt-menu__link "><i
 													class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
 													class="kt-menu__link-text">Edit Hotel</span></a></li>
 									</ul>
 								</div>
 							</li>
-							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									<rect x="0" y="0" width="24" height="24" />
-									<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
-									<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
-								</g>
-							</svg></span><span class="kt-menu__link-text">Edit Pages</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                                <span class="kt-menu__link-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo3/dist/../src/media/svg/icons/Files/File.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon points="0 0 24 0 24 24 0 24"/>
+                                        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                        <rect fill="#000000" x="6" y="11" width="9" height="2" rx="1"/>
+                                        <rect fill="#000000" x="6" y="15" width="5" height="2" rx="1"/>
+                                    </g>
+                                </svg><!--end::Svg Icon--></span><span class="kt-menu__link-text">Edit Pages</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 					<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 						<ul class="kt-menu__subnav">
 
@@ -301,7 +293,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 									<ul class="kt-menu__subnav">
 
-										<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin') }}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Main Page</span></a></li>
+										<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.roles') }}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Main Page</span></a></li>
 										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Read More Page</span></a></li>
 									</ul>
 								</div>
@@ -343,6 +335,56 @@ License: You must have a valid license purchased only from themeforest(the above
 										</svg></span><span class="kt-menu__link-text">All Users</span><i
 										class="kt-menu__ver-arrow"></i></a>
 							</li>
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+								data-ktmenu-submenu-toggle="hover">
+								<a href="{{route('admin.posts')}}"
+									class="kt-menu__link kt-menu__toggle">
+									<span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"/>
+                                            <path d="M4.5,3 L19.5,3 C20.3284271,3 21,3.67157288 21,4.5 L21,19.5 C21,20.3284271 20.3284271,21 19.5,21 L4.5,21 C3.67157288,21 3,20.3284271 3,19.5 L3,4.5 C3,3.67157288 3.67157288,3 4.5,3 Z M8,5 C7.44771525,5 7,5.44771525 7,6 C7,6.55228475 7.44771525,7 8,7 L16,7 C16.5522847,7 17,6.55228475 17,6 C17,5.44771525 16.5522847,5 16,5 L8,5 Z" fill="#000000"/>
+                                        </g>
+                                    </svg></span><span class="kt-menu__link-text">Posts</span><i
+										class="kt-menu__ver-arrow"></i></a>
+							</li>
+                            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+                            data-ktmenu-submenu-toggle="hover"><a href="{{route('admin.managers.index') }}"
+                                class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo3/dist/../src/media/svg/icons/General/User.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon points="0 0 24 0 24 24 0 24"/>
+                                        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                    </g>
+                                </svg><!--end::Svg Icon--></span><span class="kt-menu__link-text">Managers</span></a>
+
+                        </li>
+                            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+                            data-ktmenu-submenu-toggle="hover"><a href="{{route('admin.roles') }}"
+                                class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24"/>
+                                        <path d="M7.38979581,2.8349582 C8.65216735,2.29743306 10.0413491,2 11.5,2 C17.2989899,2 22,6.70101013 22,12.5 C22,18.2989899 17.2989899,23 11.5,23 C5.70101013,23 1,18.2989899 1,12.5 C1,11.5151324 1.13559454,10.5619345 1.38913364,9.65805651 L3.31481075,10.1982117 C3.10672013,10.940064 3,11.7119264 3,12.5 C3,17.1944204 6.80557963,21 11.5,21 C16.1944204,21 20,17.1944204 20,12.5 C20,7.80557963 16.1944204,4 11.5,4 C10.54876,4 9.62236069,4.15592757 8.74872191,4.45446326 L9.93948308,5.87355717 C10.0088058,5.95617272 10.0495583,6.05898805 10.05566,6.16666224 C10.0712834,6.4423623 9.86044965,6.67852665 9.5847496,6.69415008 L4.71777931,6.96995273 C4.66931162,6.97269931 4.62070229,6.96837279 4.57348157,6.95710938 C4.30487471,6.89303938 4.13906482,6.62335149 4.20313482,6.35474463 L5.33163823,1.62361064 C5.35654118,1.51920756 5.41437908,1.4255891 5.49660017,1.35659741 C5.7081375,1.17909652 6.0235153,1.2066885 6.2010162,1.41822583 L7.38979581,2.8349582 Z" fill="#000000" opacity="0.3"/>
+                                        <path d="M14.5,11 C15.0522847,11 15.5,11.4477153 15.5,12 L15.5,15 C15.5,15.5522847 15.0522847,16 14.5,16 L9.5,16 C8.94771525,16 8.5,15.5522847 8.5,15 L8.5,12 C8.5,11.4477153 8.94771525,11 9.5,11 L9.5,10.5 C9.5,9.11928813 10.6192881,8 12,8 C13.3807119,8 14.5,9.11928813 14.5,10.5 L14.5,11 Z M12,9 C11.1715729,9 10.5,9.67157288 10.5,10.5 L10.5,11 L13.5,11 L13.5,10.5 C13.5,9.67157288 12.8284271,9 12,9 Z" fill="#000000"/>
+                                    </g>
+                                </svg><!--end::Svg Icon--></span><span class="kt-menu__link-text">Roles & Permissions</span></a>
+
+                        </li>
+
+                        <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+                        data-ktmenu-submenu-toggle="hover"><a href="{{route('admin.profile',auth()->guard('admin')->user()->id ) }}"
+                            class="kt-menu__link kt-menu__toggle">
+                            <span class="kt-menu__link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                                    <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3"/>
+                                </g>
+                            </svg>
+                            </span>
+                            <span class="kt-menu__link-text">Profile</span></a>
+
+                    </li>
 						</ul>
 					</div>
 				</div>
@@ -369,6 +411,285 @@ License: You must have a valid license purchased only from themeforest(the above
 
 					<!-- begin:: Header Topbar -->
 					<div class="kt-header__topbar">
+
+                        <div class="kt-header__topbar-item dropdown">
+
+                            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="false">
+
+                                <span class="kt-header__topbar-icon kt-pulse kt-pulse--brand">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                            <path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3"></path>
+                                            <path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000"></path>
+                                        </g>
+                                    </svg> <span class="kt-pulse__ring">
+
+                                    </span>
+
+                                </span>
+
+                                <!--
+            Use dot badge instead of animated pulse effect:
+            <span class="kt-badge kt-badge--dot kt-badge--notify kt-badge--sm kt-badge--brand"></span>
+        -->
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-lg" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(44px, 64px, 0px);">
+
+                                <form>
+
+                                    <!--begin: Head -->
+                                    <div class="kt-head kt-head--skin-dark kt-head--fit-x kt-head--fit-b" style="background-image: url('{{asset('admindashboard/media/misc/bg-1.jpg')}}')">
+                                        <h3 class="kt-head__title">
+                                            User Notifications
+                                            &nbsp;
+                                            <span class="btn btn-success btn-sm btn-bold btn-font-md">23 new</span>
+                                        </h3>
+                                        <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success kt-notification-item-padding-x" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active show" data-toggle="tab" href="#topbar_notifications_notifications" role="tab" aria-selected="true">Alerts</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#topbar_notifications_events" role="tab" aria-selected="false">Events</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#topbar_notifications_logs" role="tab" aria-selected="false">Logs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!--end: Head -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
+
+                                            <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll ps" data-scroll="true" data-height="300" data-mobile-height="200" style="height: 300px; overflow: hidden;">
+                                                @if (auth()->guard('admin')->user()->hasRole('Super Admin'))
+                                                    @php
+                                                        $admin=auth()->guard('admin')->user();
+                                                    @endphp
+                                                    @foreach ($admin->notifications as $notification)
+                                                    <a href="#" class="kt-notification__item">
+                                                        <div class="kt-notification__item-icon">
+                                                            <i class="flaticon2-line-chart kt-font-success"></i>
+                                                        </div>
+                                                        <div class="kt-notification__item-details">
+                                                            <div class="kt-notification__item-title">
+                                                              {{$notification->data['manager_email']}}
+                                                            </div>
+                                                            <div class="kt-notification__item-time">
+                                                                {{ $notification->data['manager_name'] .$notification->data['message']}}
+                                                                <br>
+                                                                {{Carbon::create($notification->data['date'])->diffForHumans()}}
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    @endforeach
+
+                                                @endif
+
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                                        </div>
+                                        <div class="tab-pane" id="topbar_notifications_events" role="tabpanel">
+                                            <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll ps" data-scroll="true" data-height="300" data-mobile-height="200" style="height: 300px; overflow: hidden;">
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-psd kt-font-success"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New report has been received
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            23 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon-download-1 kt-font-danger"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            Finance report has been generated
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            25 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-line-chart kt-font-success"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New order has been received
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            2 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-box-1 kt-font-brand"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New customer is registered
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            3 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-chart2 kt-font-danger"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            Application has been approved
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            3 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-image-file kt-font-warning"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New file has been uploaded
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            5 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-drop kt-font-info"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New user feedback received
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            8 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-pie-chart-2 kt-font-success"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            System reboot has been successfully completed
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            12 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-favourite kt-font-brand"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New order has been placed
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            15 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item kt-notification__item--read">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-safe kt-font-primary"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            Company meeting canceled
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            19 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-psd kt-font-success"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New report has been received
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            23 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon-download-1 kt-font-danger"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            Finance report has been generated
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            25 hrs ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon-security kt-font-warning"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New customer comment recieved
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            2 days ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="kt-notification__item">
+                                                    <div class="kt-notification__item-icon">
+                                                        <i class="flaticon2-pie-chart kt-font-success"></i>
+                                                    </div>
+                                                    <div class="kt-notification__item-details">
+                                                        <div class="kt-notification__item-title">
+                                                            New customer is registered
+                                                        </div>
+                                                        <div class="kt-notification__item-time">
+                                                            3 days ago
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                                        </div>
+                                        <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel">
+                                            <div class="kt-grid kt-grid--ver" style="min-height: 200px;">
+                                                <div class="kt-grid kt-grid--hor kt-grid__item kt-grid__item--fluid kt-grid__item--middle">
+                                                    <div class="kt-grid__item kt-grid__item--middle kt-align-center">
+                                                        All caught up!
+                                                        <br>No new notifications.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
 						<!--begin: Search -->
 
@@ -1521,7 +1842,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Global Config -->
 
 	<!--begin::Global Theme Bundle(used by all pages) -->
-
+    @include('sweetalert::alert')
 	<!--begin:: Vendor Plugins -->
 	<script src="{{ asset('admindashboard/plugins/general/jquery/dist/jquery.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/popper.js/dist/umd/popper.js') }}" type="text/javascript"></script>
@@ -1672,15 +1993,33 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="{{ asset('admindashboard/plugins/custom/tinymce/tinymce.min.js') }} " type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/silver/theme.js') }} " type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/mobile/theme.js') }} " type="text/javascript"></script>
-
+	<script src="{{ asset('admindashboard/js/pages/crud/forms/widgets/select2.min.js') }} " type="text/javascript"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+           headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+        });
+        </script>
 	<!--end:: Vendor Plugins for custom pages -->
 
 	<!--end::Global Theme Bundle -->
 	<!--end::Page Vendors -->
 
 	<!--begin::Page Scripts(used by this page) -->
-	<script src="{{ asset('admindashboard/js/pages/dashboard.js') }}" type="text/javascript"></script>
 
+	<script src="{{ asset('admindashboard/js/pages/dashboard.js') }}" type="text/javascript"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+
+    <script>
+        Pusher.logToConsole = true;
+
+var pusher = new Pusher('0a6f945b75e1ddaadfa1', {
+//    cluster: 'mt1'
+encrypted: true
+});
+    </script>
+    <script src="{{ asset('admindashboard/js/myjs.js') }}" type="text/javascript"></script>
+     @yield('scripts')
 	<!--end::Page Scripts -->
 </body>
 

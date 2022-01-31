@@ -40,5 +40,14 @@ class Hotel extends Model
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
+    /**
+     * The hotels that belong to the Hotel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function hotels(): BelongsTo
+    {
+        return $this->belongsTo(Manager::class, 'manager_id', 'id');
+    }
 
 }

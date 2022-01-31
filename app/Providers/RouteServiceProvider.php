@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
-    public const LOGOUT='/logout';
+    // public const admin='/dashboard/admin/roles';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
 
         parent::boot();
     }
@@ -46,6 +46,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+        // $this->mapAdminRoutes();
 
         //
     }
@@ -78,4 +79,11 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
+    // protected function mapAdminRoutes()
+    // {
+
+    //     Route::middleware('admin')
+    //         ->namespace($this->namespace)
+    //         ->group(base_path('routes/web.php'));
+    // }
 }
