@@ -19,11 +19,15 @@ class CreateHotelsTable extends Migration
             $table->unsignedInteger('country_id');
             $table->unsignedInteger('city_id');
             $table->integer('numberoffloor');
+            $table->longText('description'); 
+            $table->longText('image'); 
+            $table->integer('salaryAtNight');
             $table->integer('numberofroomsinonefloor');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
              $table->integer('stars')->max('5');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-
+            $table->unsignedInteger('manager_id');
+            $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
             $table->timestamps();
         });
     }

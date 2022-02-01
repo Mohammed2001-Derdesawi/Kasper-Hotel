@@ -22,7 +22,7 @@ class CreateRoomsTable extends Migration
             $table->integer('isclean')->default('1');
             $table->bigInteger('loadTime')->default('0');
             $table->double('room_price');
-            $table->integer('roomType')->default('1');
+            $table->longText('imageRoom');
             $table->unsignedInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->timestamps();

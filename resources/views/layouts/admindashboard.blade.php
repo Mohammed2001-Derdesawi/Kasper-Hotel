@@ -27,6 +27,11 @@ License: You must have a valid license purchased only from themeforest(the above
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
 
+	{{-- <meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="_token" content="{{csrf_token()}}" /> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    <!-- Bootstrap core CSS -->
+
 	<!--end::Fonts -->
 
 	<!--begin::Page Vendors Styles(used by this page) -->
@@ -36,84 +41,122 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--begin::Global Theme Styles(used by all pages) -->
 
 	<!--begin:: Vendor Plugins -->
-	<link href="{{ asset('admindashboard/plugins/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet') }}" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/tether/dist/css/tether.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/perfect-scrollbar/css/perfect-scrollbar.css"
+		rel="stylesheet') }}" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/tether/dist/css/tether.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-timepicker/css/bootstrap-timepicker.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-daterangepicker/daterangepicker.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-select/dist/css/bootstrap-select.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/select2/dist/css/select2.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/ion-rangeslider/css/ion.rangeSlider.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/nouislider/distribute/nouislider.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/owl.carousel/dist/assets/owl.carousel.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/owl.carousel/dist/assets/owl.theme.default.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/dropzone/dist/dropzone.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/quill/dist/quill.snow.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/select2/dist/css/select2.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/ion-rangeslider/css/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/nouislider/distribute/nouislider.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/owl.carousel/dist/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/owl.carousel/dist/assets/owl.theme.default.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/summernote/dist/summernote.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/quill/dist/quill.snow.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/summernote/dist/summernote.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/bootstrap-markdown/css/bootstrap-markdown.min.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/bootstrap-markdown/css/bootstrap-markdown.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/animate.css/animate.css" rel="stylesheet') }}"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/animate.css/animate.css" rel="stylesheet') }}" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/toastr/build/toastr.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/dual-listbox/dist/dual-listbox.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/toastr/build/toastr.css') }}" rel="stylesheet"
+		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/dual-listbox/dist/dual-listbox.css') }}" rel="stylesheet"
+		type="text/css" />
 	<link href="{{ asset('admindashboard/plugins/general/morris.js/morris.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/socicon/css/socicon.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/plugins/line-awesome/css/line-awesome.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/plugins/flaticon/flaticon.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/plugins/flaticon2/flaticon.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/general/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet"
 		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/socicon/css/socicon.css') }}" rel="stylesheet"
+		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/plugins/line-awesome/css/line-awesome.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/plugins/flaticon/flaticon.css') }}" rel="stylesheet"
+		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/plugins/flaticon2/flaticon.css') }}" rel="stylesheet"
+		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/general/@fortawesome/fontawesome-free/css/all.min.css') }}"
+		rel="stylesheet" type="text/css" />
 
 	<!--end:: Vendor Plugins -->
 	<link href="{{ asset('admindashboard/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 
 	<!--begin:: Vendor Plugins for custom pages -->
-	<link href="{{ asset('admindashboard/plugins/custom/plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/core/main.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/daygrid/main.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/list/main.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/timegrid/main.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/custom/plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/core/main.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-autofill-bs4/css/autoFill.bootstrap4.min.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/daygrid/main.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css') }}" rel="stylesheet"
+	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/list/main.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-fixedcolumns-bs4/css/fixedColumns.bootstrap4.min.css') }}"
+	<link href="{{ asset('admindashboard/plugins/custom/@fullcalendar/timegrid/main.css') }}" rel="stylesheet"
+		type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-bs4/css/dataTables.bootstrap4.css') }}"
 		rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-fixedheader-bs4/css/fixedHeader.bootstrap4.min.css') }}"
+	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
 		rel="stylesheet" type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-keytable-bs4/css/keyTable.bootstrap4.min.css') }}" rel="stylesheet"
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-autofill-bs4/css/autoFill.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-fixedcolumns-bs4/css/fixedColumns.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-fixedheader-bs4/css/fixedHeader.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-keytable-bs4/css/keyTable.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="{{ asset('admindashboard/plugins/custom/datatables.net-scroller-bs4/css/scroller.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admindashboard/plugins/custom/jstree/dist/themes/default/style.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet"
-		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css') }}" rel="stylesheet"
-		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4.min.css') }}" rel="stylesheet"
-		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-scroller-bs4/css/scroller.bootstrap4.min.css') }}" rel="stylesheet"
-		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}" rel="stylesheet"
-		type="text/css" />
-	<link href="{{ asset('admindashboard/plugins/custom/jstree/dist/themes/default/style.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('admindashboard/plugins/custom/jqvmap/dist/jqvmap.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('admindashboard/plugins/custom/uppy/dist/uppy.min.css') }}" rel="stylesheet" type="text/css" />
 
 	<!--end:: Vendor Plugins for custom pages -->
+
+
+	@yield('css')
+
 
 	<!--end::Global Theme Styles -->
 
@@ -126,9 +169,19 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Layout Skins -->
 	<link rel="shortcut icon" href="{{ asset('admindashboard/media/logos/favicon.ico') }}" />
 
+{{-- 	
+	<link rel="shortcut icon" href="{{asset('userdashboard/fonts/fa-regular-400.ttf')}}" />
+	<link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/reset.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/plugins.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/color.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/style-all-hotel.css')}}"> --}}
 	<!-- begin:: My Style css -->
 	<link rel="stylesheet" href="{{ asset('admindashboard/css/mystyle.css') }}">
 	<!-- end:: My Style css -->
+
+
+	@livewireStyles
+
 </head>
 
 <!-- end::Head -->
@@ -219,28 +272,8 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1"
 						data-ktmenu-dropdown-timeout="500">
 						<ul class="kt-menu__nav ">
-							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="{{route('admin')}}"
-									class="kt-menu__link "><span class="kt-menu__link-icon"><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<polygon points="0 0 24 0 24 24 0 24" />
-												<path
-													d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
-													fill="#000000" fill-rule="nonzero" />
-												<path
-													d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg></span><span class="kt-menu__link-text">Dashboard</span></a></li>
-
-							<li class="kt-menu__section ">
-								<h4 class="kt-menu__section-text">Layout</h4>
-								<i class="kt-menu__section-icon flaticon-more-v2"></i>
-							</li>
 							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
-								data-ktmenu-submenu-toggle="hover"><a href="{{route('admin')}}"
+								data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin') }}"
 									class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg
 											xmlns="http://www.w3.org/2000/svg"
 											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
@@ -254,6 +287,13 @@ License: You must have a valid license purchased only from themeforest(the above
 										</svg></span><span class="kt-menu__link-text">Home</span><i
 										class="kt-menu__ver-arrow"></i></a>
 							</li>
+
+							<li class="kt-menu__section ">
+								<h4 class="kt-menu__section-text">Layout</h4>
+								<i class="kt-menu__section-icon flaticon-more-v2"></i>
+							</li>
+
+
 
 							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
 								data-ktmenu-submenu-toggle="hover"><a href="javascript:;"
@@ -276,59 +316,65 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 									<ul class="kt-menu__subnav">
 										<li class="kt-menu__item " aria-haspopup="true"><a
-												href="{{route('admin')}}" class="kt-menu__link "><i
+												href="{{ route('addHotel') }}" class="kt-menu__link "><i
 													class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
 													class="kt-menu__link-text">Add Hotel</span></a></li>
 										<li class="kt-menu__item " aria-haspopup="true"><a
-												href="{{route('admin') }}" class="kt-menu__link "><i
+												href="{{ route('allhotels_admin') }}" class="kt-menu__link "><i
 													class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
-													class="kt-menu__link-text">Edit Hotel</span></a></li>
+													class="kt-menu__link-text">show Hotel</span></a></li>
 									</ul>
 								</div>
 							</li>
-							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									<rect x="0" y="0" width="24" height="24" />
-									<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
-									<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
-								</g>
-							</svg></span><span class="kt-menu__link-text">Edit Pages</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-					<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
-						<ul class="kt-menu__subnav">
-
-							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-								<a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Edit Main Pages</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+								data-ktmenu-submenu-toggle="hover"><a href="javascript:;"
+									class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+												<path
+													d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg></span><span class="kt-menu__link-text">Edite Pages</span><i
+										class="kt-menu__ver-arrow la la-angle-right"></i></a>
 								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 									<ul class="kt-menu__subnav">
 
-										<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin') }}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Main Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Read More Page</span></a></li>
+										<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+											data-ktmenu-submenu-toggle="hover">
+											<a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i
+													class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span
+													class="kt-menu__link-text">Edite Main Pages</span><i
+													class="kt-menu__ver-arrow la la-angle-right"></i></a>
+											<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+												<ul class="kt-menu__subnav">
+
+													<li class="kt-menu__item " aria-haspopup="true"><a
+															href="custom/apps/user/profile-2.html"
+															class="kt-menu__link "><i
+																class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
+																class="kt-menu__link-text">Edite Main Page</span></a>
+													</li>
+													<li class="kt-menu__item " aria-haspopup="true"><a
+															href="custom/apps/user/profile-3.html"
+															class="kt-menu__link "><i
+																class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
+																class="kt-menu__link-text">Edite Read More
+																Page</span></a></li>
+												</ul>
+											</div>
+										</li>
 									</ul>
 								</div>
 							</li>
-							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Edit Dashboard Pages</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
-									<ul class="kt-menu__subnav">
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit The Main Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit All Hotel Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Hotel Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit View Hotel Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Profile Page</span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Information Profile </span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Help Profile </span></a></li>
-										<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Edit Contact Us Page</span></a></li>
-									</ul>
-								</div>
-
-						</ul>
-					</div>
-				</li>
 							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
 								data-ktmenu-submenu-toggle="hover">
-								<a href="allusers.html"
-									class="kt-menu__link kt-menu__toggle">
-									<span class="kt-menu__link-icon"><svg
-											xmlns="http://www.w3.org/2000/svg"
+								<a href="{{ route('users') }}" class="kt-menu__link kt-menu__toggle">
+									<span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
 											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
 											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -341,6 +387,63 @@ License: You must have a valid license purchased only from themeforest(the above
 													fill="#000000" fill-rule="nonzero" />
 											</g>
 										</svg></span><span class="kt-menu__link-text">All Users</span><i
+										class="kt-menu__ver-arrow"></i></a>
+							</li>
+
+
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+								data-ktmenu-submenu-toggle="hover">
+								<a href="{{ route('managers') }}" class="kt-menu__link kt-menu__toggle">
+									<span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<polygon points="0 0 24 0 24 24 0 24" />
+												<path
+													d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
+													fill="#000000" fill-rule="nonzero" opacity="0.3" />
+												<path
+													d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
+													fill="#000000" fill-rule="nonzero" />
+											</g>
+										</svg></span><span class="kt-menu__link-text">Managers</span><i
+										class="kt-menu__ver-arrow"></i></a>
+							</li>
+
+
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+								data-ktmenu-submenu-toggle="hover">
+								<a href="{{ route('addRole') }}" class="kt-menu__link kt-menu__toggle"><span
+										class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+												<path
+													d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg></span><span class="kt-menu__link-text">Add Role</span><i
+										class="kt-menu__ver-arrow"></i></a>
+							</li>
+
+
+
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+								data-ktmenu-submenu-toggle="hover">
+								<a href="{{ route('addPermission') }}" class="kt-menu__link kt-menu__toggle"><span
+										class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+												<path
+													d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg></span><span class="kt-menu__link-text">Add Permission</span><i
 										class="kt-menu__ver-arrow"></i></a>
 							</li>
 						</ul>
@@ -475,7 +578,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 													</div>
 													<a href="#" class="kt-mycart__pic">
-														<img src="{{ asset('admindashboard/media/products/product9.jpg') }}" title="">
+														<img src="{{ asset('admindashboard/media/products/product9.jpg') }}"
+															title="">
 													</a>
 												</div>
 											</div>
@@ -499,7 +603,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 													</div>
 													<a href="#" class="kt-mycart__pic">
-														<img src="{{ asset('admindashboard/media/products/product13.jpg') }}" title="">
+														<img src="{{ asset('admindashboard/media/products/product13.jpg') }}"
+															title="">
 													</a>
 												</div>
 											</div>
@@ -523,7 +628,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 													</div>
 													<a href="#" class="kt-mycart__pic">
-														<img src="{{ asset('admindashboard/media/products/product16.jpg') }}" title="">
+														<img src="{{ asset('admindashboard/media/products/product16.jpg') }}"
+															title="">
 													</a>
 												</div>
 											</div>
@@ -547,7 +653,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 													</div>
 													<a href="#" class="kt-mycart__pic">
-														<img src="{{ asset('admindashboard/media/products/product15.jpg') }}" title="" alt="">
+														<img src="{{ asset('admindashboard/media/products/product15.jpg') }}"
+															title="" alt="">
 													</a>
 												</div>
 											</div>
@@ -613,7 +720,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 					<!-- begin:: Content -->
-                    @yield('content');
+					@yield('content');
 					<!-- end:: Content -->
 
 
@@ -626,16 +733,12 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
 					<div class="kt-container  kt-container--fluid ">
 						<div class="kt-footer__copyright">
-							2019&nbsp;&copy;&nbsp;<a href="#" target="_blank"
-								class="kt-link">Keenthemes</a>
+							2019&nbsp;&copy;&nbsp;<a href="#" target="_blank" class="kt-link">Keenthemes</a>
 						</div>
 						<div class="kt-footer__menu">
-							<a href="#" target="_blank"
-								class="kt-footer__menu-link kt-link">About</a>
-							<a href="#" target="_blank"
-								class="kt-footer__menu-link kt-link">Team</a>
-							<a href="#" target="_blank"
-								class="kt-footer__menu-link kt-link">Contact</a>
+							<a href="#" target="_blank" class="kt-footer__menu-link kt-link">About</a>
+							<a href="#" target="_blank" class="kt-footer__menu-link kt-link">Team</a>
+							<a href="#" target="_blank" class="kt-footer__menu-link kt-link">Contact</a>
 						</div>
 					</div>
 				</div>
@@ -654,8 +757,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x"
 				role="tablist">
 				<li class="nav-item active">
-					<a class="nav-link active" data-toggle="tab" href="#"
-						role="tab">Notifications</a>
+					<a class="nav-link active" data-toggle="tab" href="#" role="tab">Notifications</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#" role="tab">Audit Logs</a>
@@ -1076,10 +1178,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo1.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1090,10 +1190,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo2.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1104,10 +1202,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo3.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1118,10 +1214,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo4.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1132,10 +1226,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo5.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1146,10 +1238,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo6.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1160,10 +1250,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo7.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1174,10 +1262,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo8.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1188,10 +1274,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo9.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1202,10 +1286,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo10.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1216,10 +1298,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo11.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1230,10 +1310,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="kt-demo-panel__item-preview">
 					<img src="{{ asset('admindashboard/media//demos/preview/demo12.jpg') }}" alt="" />
 					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#"
-							class="btn btn-brand btn-elevate " target="_blank">Default</a>
-						<a href="#"
-							class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
+						<a href="#" class="btn btn-brand btn-elevate " target="_blank">Default</a>
+						<a href="#" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
 					</div>
 				</div>
 			</div>
@@ -1360,7 +1438,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-chat__message kt-chat__message--success">
 										<div class="kt-chat__user">
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}"
+													alt="image">
 											</span>
 											<a href="#" class="kt-chat__username">Jason Muller</span></a>
 											<span class="kt-chat__datetime">2 Hours</span>
@@ -1374,7 +1453,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<span class="kt-chat__datetime">30 Seconds</span>
 											<a href="#" class="kt-chat__username">You</span></a>
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}"
+													alt="image">
 											</span>
 										</div>
 										<div class="kt-chat__text">
@@ -1385,7 +1465,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-chat__message kt-chat__message--success">
 										<div class="kt-chat__user">
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}"
+													alt="image">
 											</span>
 											<a href="#" class="kt-chat__username">Jason Muller</span></a>
 											<span class="kt-chat__datetime">30 Seconds</span>
@@ -1399,7 +1480,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<span class="kt-chat__datetime">Just Now</span>
 											<a href="#" class="kt-chat__username">You</span></a>
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}"
+													alt="image">
 											</span>
 										</div>
 										<div class="kt-chat__text">
@@ -1409,7 +1491,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-chat__message kt-chat__message--success">
 										<div class="kt-chat__user">
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}"
+													alt="image">
 											</span>
 											<a href="#" class="kt-chat__username">Jason Muller</span></a>
 											<span class="kt-chat__datetime">2 Hours</span>
@@ -1424,7 +1507,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<span class="kt-chat__datetime">30 Seconds</span>
 											<a href="#" class="kt-chat__username">You</span></a>
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}"
+													alt="image">
 											</span>
 										</div>
 										<div class="kt-chat__text">
@@ -1435,7 +1519,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-chat__message kt-chat__message--success">
 										<div class="kt-chat__user">
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/100_12.jpg') }}"
+													alt="image">
 											</span>
 											<a href="#" class="kt-chat__username">Jason Muller</span></a>
 											<span class="kt-chat__datetime">30 Seconds</span>
@@ -1450,7 +1535,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<span class="kt-chat__datetime">Just Now</span>
 											<a href="#" class="kt-chat__username">You</span></a>
 											<span class="kt-media kt-media--circle kt-media--sm">
-												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}" alt="image">
+												<img src="{{ asset('admindashboard/media/users/300_21.jpg') }}"
+													alt="image">
 											</span>
 										</div>
 										<div class="kt-chat__text">
@@ -1487,6 +1573,12 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--ENd:: Chat-->
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
+
+	{{-- begin alert notify --}}
+	@include('sweetalert::alert')
+	{{-- end alert notify --}}
+
+
 	<script>
 		var KTAppOptions = {
 			"colors": {
@@ -1524,106 +1616,171 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--begin:: Vendor Plugins -->
 	<script src="{{ asset('admindashboard/plugins/general/jquery/dist/jquery.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/popper.js/dist/umd/popper.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/js-cookie/src/js.cookie.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/moment/min/moment.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/tooltip.js/dist/umd/tooltip.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/perfect-scrollbar/dist/perfect-scrollbar.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/sticky-js/dist/sticky.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/popper.js/dist/umd/popper.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap/dist/js/bootstrap.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/js-cookie/src/js.cookie.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/moment/min/moment.min.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/tooltip.js/dist/umd/tooltip.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/perfect-scrollbar/dist/perfect-scrollbar.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/sticky-js/dist/sticky.min.js') }}" type="text/javascript">
+	</script>
 	<script src="{{ asset('admindashboard/plugins/general/wnumb/wNumb.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery-form/dist/jquery.form.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/block-ui/jquery.blockUI.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery-form/dist/jquery.form.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/block-ui/jquery.blockUI.js') }}" type="text/javascript">
+	</script>
 	<script src="{{ asset('admindashboard/plugins/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-datepicker.init.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-datepicker.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-timepicker.init.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-timepicker.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-daterangepicker/daterangepicker.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-maxlength/src/bootstrap-maxlength.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/plugins/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js') }}"
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-maxlength/src/bootstrap-maxlength.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-select/dist/js/bootstrap-select.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-switch/dist/js/bootstrap-switch.js') }}" type="text/javascript"></script>
+	<script
+		src="{{ asset('admindashboard/plugins/general/plugins/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-select/dist/js/bootstrap-select.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-switch/dist/js/bootstrap-switch.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-switch.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/select2/dist/js/select2.full.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/ion-rangeslider/js/ion.rangeSlider.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/typeahead.js/dist/typeahead.bundle.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/handlebars/dist/handlebars.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/inputmask/dist/jquery.inputmask.bundle.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/select2/dist/js/select2.full.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/ion-rangeslider/js/ion.rangeSlider.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/typeahead.js/dist/typeahead.bundle.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/handlebars/dist/handlebars.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/inputmask/dist/jquery.inputmask.bundle.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/inputmask/dist/inputmask/inputmask.date.extensions.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/nouislider/distribute/nouislider.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/owl.carousel/dist/owl.carousel.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/autosize/dist/autosize.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/clipboard/dist/clipboard.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/dropzone/dist/dropzone.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/dropzone.init.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/nouislider/distribute/nouislider.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/owl.carousel/dist/owl.carousel.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/autosize/dist/autosize.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/clipboard/dist/clipboard.min.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/dropzone/dist/dropzone.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/dropzone.init.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/quill/dist/quill.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.polyfills.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/summernote/dist/summernote.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/markdown/lib/markdown.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-markdown/js/bootstrap-markdown.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.polyfills.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/@yaireo/tagify/dist/tagify.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/summernote/dist/summernote.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/markdown/lib/markdown.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-markdown/js/bootstrap-markdown.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-markdown.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/bootstrap-notify/bootstrap-notify.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/bootstrap-notify/bootstrap-notify.min.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/bootstrap-notify.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery-validation/dist/jquery.validate.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery-validation/dist/additional-methods.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery-validation/dist/jquery.validate.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery-validation/dist/additional-methods.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/jquery-validation.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/toastr/build/toastr.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/dual-listbox/dist/dual-listbox.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/toastr/build/toastr.min.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/dual-listbox/dist/dual-listbox.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/raphael/raphael.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/morris.js/morris.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/chart.js/dist/Chart.bundle.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/plugins/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js') }}"
+	<script src="{{ asset('admindashboard/plugins/general/chart.js/dist/Chart.bundle.js') }}" type="text/javascript">
+	</script>
+	<script
+		src="{{ asset('admindashboard/plugins/general/plugins/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/plugins/jquery-idletimer/idle-timer.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/waypoints/lib/jquery.waypoints.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/counterup/jquery.counterup.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/es6-promise-polyfill/promise.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/plugins/jquery-idletimer/idle-timer.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/waypoints/lib/jquery.waypoints.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/counterup/jquery.counterup.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/es6-promise-polyfill/promise.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/sweetalert2/dist/sweetalert2.min.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/general/js/global/integration/plugins/sweetalert2.init.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/lib.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/jquery.input.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/repeater.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/general/dompurify/dist/purify.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/lib.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/jquery.input.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/general/jquery.repeater/src/repeater.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/general/dompurify/dist/purify.js') }}" type="text/javascript">
+	</script>
 
 	<!--end:: Vendor Plugins -->
 	<script src="{{ asset('admindashboard/js/scripts.bundle.js') }}" type="text/javascript"></script>
 
 	<!--begin:: Vendor Plugins for custom pages -->
-	<script src="{{ asset('admindashboard/plugins/custom/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/core/main.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/daygrid/main.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/google-calendar/main.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/interaction/main.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/list/main.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/timegrid/main.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/plugins/jquery-ui/jquery-ui.min.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/core/main.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/daygrid/main.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/google-calendar/main.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/interaction/main.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/list/main.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/@fullcalendar/timegrid/main.js') }}" type="text/javascript">
+	</script>
 	<script src="{{ asset('admindashboard/plugins/custom/gmaps/gmaps.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/dist/es5/jquery.flot.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.resize.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.categories.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.pie.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.stack.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.crosshair.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.axislabels.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net/js/jquery.dataTables.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-bs4/js/dataTables.bootstrap4.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/dist/es5/jquery.flot.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.resize.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.categories.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.pie.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.stack.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.crosshair.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/flot/source/jquery.flot.axislabels.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net/js/jquery.dataTables.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-bs4/js/dataTables.bootstrap4.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/js/global/integration/plugins/datatables.init.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-autofill/js/dataTables.autoFill.min.js') }}"
@@ -1631,27 +1788,36 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-autofill-bs4/js/autoFill.bootstrap4.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/jszip/dist/jszip.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/pdfmake/build/pdfmake.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/pdfmake/build/vfs_fonts.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/pdfmake/build/pdfmake.min.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/pdfmake/build/vfs_fonts.js') }}" type="text/javascript">
+	</script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/dataTables.buttons.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.colVis.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.flash.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.html5.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.print.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.colVis.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.flash.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.html5.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-buttons/js/buttons.print.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-colreorder/js/dataTables.colReorder.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/custom/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/custom/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-responsive/js/dataTables.responsive.min.js') }}"
 		type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"
+	<script
+		src="{{ asset('admindashboard/plugins/custom/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-rowgroup/js/dataTables.rowGroup.min.js') }}"
 		type="text/javascript"></script>
@@ -1662,16 +1828,24 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="{{ asset('admindashboard/plugins/custom/datatables.net-select/js/dataTables.select.min.js') }}"
 		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/jstree/dist/jstree.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/jquery.vmap.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.world.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.russia.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.usa.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.germany.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.europe.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/jquery.vmap.js') }}" type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.world.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.russia.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.usa.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.germany.js') }}"
+		type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/jqvmap/dist/maps/jquery.vmap.europe.js') }}"
+		type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/uppy/dist/uppy.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('admindashboard/plugins/custom/tinymce/tinymce.min.js') }} " type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/silver/theme.js') }} " type="text/javascript"></script>
-	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/mobile/theme.js') }} " type="text/javascript"></script>
+	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/silver/theme.js') }} " type="text/javascript">
+	</script>
+	<script src="{{ asset('admindashboard/plugins/custom/tinymce/themes/mobile/theme.js') }} " type="text/javascript">
+	</script>
 
 	<!--end:: Vendor Plugins for custom pages -->
 
@@ -1680,6 +1854,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--begin::Page Scripts(used by this page) -->
 	<script src="{{ asset('admindashboard/js/pages/dashboard.js') }}" type="text/javascript"></script>
+    @yield('scripts')
+
+	@livewireScripts
+
 
 	<!--end::Page Scripts -->
 </body>

@@ -480,7 +480,7 @@ object-fit: cover;
 
 
 
-        </div>
+        
 
 
 

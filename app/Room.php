@@ -17,29 +17,27 @@ class Room extends Model
         'isclean',
         'loadTime',
         'room_price',
-        'roomType'
+        'imageRoom',
+        'hotel_id'
 
 
     ];
-     /**
-      * Get the user associated with the Room
-      *
-      * @return \Illuminate\Database\Eloquent\Relations\HasOne
-      */
-     public function hotel(): HasOne
+     
+     public function hotel(): BelongsTo
      {
-         return $this->hasOne(Hotel::class, 'hotel_id', 'id');
+         return $this->belongsTo(Hotel::class, 'hotel_id', 'id');
      }
-     /**
-      * Get the user associated with the Room
-      *
-      * @return \Illuminate\Database\Eloquent\Relations\HasOne
-      */
-     public function booked(): BelongsTo
-     {
-         return $this->belongsTo(User::class, 'room_id', 'id');
-     }
+     
 
+    /**
+     * Get all of the comments for the Room
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function book(): HasMany
+    {
+        return $this->hasMany(Booked::class, 'room_id', 'id');
+    }
 
 
 }

@@ -26,14 +26,17 @@ class Booked extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    /**
-     * Get all of the comments for the Booked
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function rooms(): HasMany
-    {
-        return $this->hasMany(Room::class, 'room_id', 'id');
-    }
+    
+    
+
+     /**
+      * Get the user that owns the Booked
+      *
+      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+      */
+     public function room(): BelongsTo
+     {
+         return $this->belongsTo(Room::class, 'room_id', 'id');
+     }
 
 }

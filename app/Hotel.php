@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Hotel extends Model
 {
     protected $fillable = [
-        'name', 'country_id', 'city_id','numberoffloor','numberofroomsinonefloor','stars'
+        'name', 'country_id', 'city_id','numberoffloor','numberofroomsinonefloor','stars','manager_id' , 'description' ,'salaryAtNight','image'
     ];
 
     /**
@@ -39,6 +39,35 @@ class Hotel extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
+
+    /**
+     * Get all of the comments for the Hotel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+
+    /**
+     * Get the user that owns the Hotel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function manager(): BelongsTo
+    {
+        return $this->belongsTo('App\Manager' , 'manager_id' , 'id');
+    }
+
+
+    /**
+     * Get all of the comments for the Hotel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function image(): HasMany
+    {
+        return $this->hasMany('App\HotelImageAdmin', 'hotel_id', 'id');
     }
 
 }
