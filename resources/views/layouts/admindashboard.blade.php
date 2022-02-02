@@ -464,6 +464,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
 
                                             <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll ps" data-scroll="true" data-height="300" data-mobile-height="200" style="height: 300px; overflow: hidden;">
+
+
                                                 @if (auth()->guard('admin')->user()->hasRole('Super Admin'))
                                                     @php
                                                         $admin=auth()->guard('admin')->user();

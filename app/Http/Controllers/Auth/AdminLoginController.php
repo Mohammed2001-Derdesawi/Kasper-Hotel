@@ -93,9 +93,6 @@ class AdminLoginController extends Controller
           $user=auth()->guard('admin')->user();
           auth()->guard('admin')->login($user);
 
-          $data=[
-              'manager_name'=>$user->name,
-          ];
         if(!auth()->guard('admin')->user()->hasRole('Super Admin'))
          return redirect()->route('admin.notify');
          return redirect()->route('admin.roles');
