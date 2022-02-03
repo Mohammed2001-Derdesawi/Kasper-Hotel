@@ -906,7 +906,10 @@
             e.preventDefault();
             let formData = $(this).serializeArray();
             console.log(formData);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
             $(".invalid-feedback").children("strong").text("");
             $("#registerForm input").removeClass("is-invalid");
             $.ajax({
@@ -937,7 +940,11 @@
         $('#LoginFrom').submit(function (e) {
             e.preventDefault();
             let formData = $(this).serializeArray();
+<<<<<<< HEAD
 
+=======
+            console.log(formData);
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
             $(".invalid-feedback").children("strong").text("");
             $("#LoginFrom input").removeClass("is-invalid");
             $.ajax({

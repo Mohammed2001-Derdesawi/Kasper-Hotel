@@ -480,7 +480,11 @@ object-fit: cover;
 
 
 
+<<<<<<< HEAD
         </div>
+=======
+        
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
 
 
 

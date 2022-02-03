@@ -139,7 +139,11 @@
                   </div>
                   <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
                       <div class="btn_photo_hotel text-center">
+<<<<<<< HEAD
                       <button class="btn"><a href="{{route('allhotels')}}">Explore All Cities</a></button>
+=======
+                      <button class="btn"><a href="all-hotel.html">Explore All Cities</a></button>
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
                       </div>
                   </div>
                 </div>

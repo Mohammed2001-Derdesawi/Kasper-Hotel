@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use App\Notifications\ManagerLogin;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
@@ -25,45 +26,23 @@ class Manager extends Authenticatable
     ];
 
 
-    // /**
-    //  * The roles that belong to the Manager
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    //  */
-    // public function roles(): BelongsToMany
-    // {
-    //     return $this->belongsToMany(Role::class, 'manager_role_table', 'manager_id', 'role_id');
-    // }
-    // /**
-    //  * Get all of the comments for the Manager
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    //  */
+
+
+
+
+
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class, 'manager_id', 'id');
     }
-    /**
-     * Get all of the hotels for the Manager
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
     public function hotels(): HasMany
     {
         return $this->hasMany(Hotel::class, 'manager_id', 'id');
     }
 
-    // public function notify($instance)
-    // {
-    //     $admins=Manager::role('Super Admin')->get();
 
 
-    //     foreach($admins as $admin)
-    //     {
-    //      $admin->notify(new ManagerLogin());
-    //     }
-
-    // }
 
 
 
