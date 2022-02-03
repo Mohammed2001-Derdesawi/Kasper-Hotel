@@ -182,9 +182,9 @@
                             </div> --}}
 
 
-                            <input type="file" name="image" accept="image/png, image/jpeg , image/jpg"
+                            <input type="file" name="image[]" accept="image/png, image/jpeg , image/jpg"
                             class="form-control  @error('image') is-invalid @enderror"  
-                            value="{{ asset($hotel->image) }}">
+                            value="{{ asset($hotel->image) }}" multiple>
 
                             @error('image')
                             <span class="invalid-feedback" role="alert">

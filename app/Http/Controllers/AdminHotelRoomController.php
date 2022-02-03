@@ -272,6 +272,7 @@ class AdminHotelRoomController extends Controller
      */
     public function destroy(Request $request)
     {
+      
         $roomId = $request->forRoomId;
         // $hotel = Hotel::findOrfail($id);
         $room = Room::where('id', $roomId)->delete();

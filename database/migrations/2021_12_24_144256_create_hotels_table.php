@@ -20,7 +20,6 @@ class CreateHotelsTable extends Migration
             $table->unsignedInteger('city_id');
             $table->integer('numberoffloor');
             $table->longText('description'); 
-            $table->longText('image'); 
             $table->integer('salaryAtNight');
             $table->integer('numberofroomsinonefloor');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

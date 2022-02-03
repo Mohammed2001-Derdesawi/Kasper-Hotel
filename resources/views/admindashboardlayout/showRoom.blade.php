@@ -126,6 +126,10 @@
     </div>
 
     <div id="products" class="row view-group">
+        @if($ShowRoom->count() == 0)
+        
+            there is  no rooms
+        @else
         @foreach ($ShowRoom as $room)
         <div class="item col-xs-4 col-lg-4">
             <div class="thumbnail card">
@@ -181,6 +185,7 @@
 
         </div>
         @endforeach
+        @endif
     </div>
 
 
@@ -204,7 +209,7 @@
                 </button>
             </div>
 
-            <form action="{{ route('deleteRoom',$room->id) }}" method="POST">
+            <form action="{{ route('deleteRoom') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <h4>Are you sure to delete <span style="color: #fa2c27;">?</span></h4>

@@ -68,37 +68,18 @@ class AdminHotelController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $input = $request->all();
+        // dd($request);
+        $input = $request->except('image');
 
-        // if($request->hasFile('file')){
-        //     // $imageNew->hotel_id = $idHotel;
-        //     $file = $request->file('file');
-        //     $completeFileName = $file->getClientOriginalName();
-        //     $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
-        //     $extension = $file->getClientOriginalExtension();
-        //     $randomized = rand();
-        //     $documents = str_replace(' ', '', $fileNameOnly).'-'.$randomized.''.time().'.'.$extension;
-        //     $path = $file->storeAs('public/HotelAdmin', $documents);
-        //     $test2 = $request->hasFile('file');
-           
-        //     $insert_doc = DB::table('hotel_image_admins')->insert([
-        //             'imageName' => $documents,
-        //         ]);
-        // echo $documents;
-        // die;
-        // }
-
-        
-        
-
+ 
         $request->validate([
             'name' => 'required|unique:hotels|max:255', 
             'numberoffloor' => 'required', 
             'numberofroomsinonefloor' => 'required', 
             'stars' => 'required', 
             'salaryAtNight' => 'required', 
-            // 'image' => 'mimes:jpeg,png,jpg|required', 
+            'image' => 'required',
+            'image.*' => 'mimes:jpeg,png,jpg', 
         ],[
 
             'name.required' =>'Please Enter the name of hotel !!',
@@ -112,38 +93,18 @@ class AdminHotelController extends Controller
 
             'salaryAtNight.required' =>'Please select a price per night !!',
 
-            // 'image.required' =>'Please select an Image for hotel !!',
+            'image.required' =>'Please select an Image for hotel !!',
 
-            // 'image.mimes' =>'Image Hotel Must be jpeg,png or jpg extension !!',
+            'image.mimes' =>'Image Hotel Must be jpeg,png or jpg extension !!',
 
 
 
         ]);
         
-
-        // if($request->hasFile('file')) {
-        //     $image = $request->file('file');
-   
-        //     $imageName = time() . '.' . $image->getClientOriginalName();
-        //     $image->move(public_path('images_Admin_Hotel'),$imageName);
-        //     // dd('yes');
-
-        //     dd($imageName);
-        //     $input->image()->create([
-        //         'imageName' => $imageName,
-        //     ]);
-        //     return response()->json(['success'=>$imageName],200);
-        // }
+        
 
 
-        // if($request->file('image')) {
-        //     $file = $request->file('image');
-        //     $name = time().'-'.$file->getClientOriginalName();
-        //     $file->move('imagesHotelAdmin' , $name);
-        //     $input['image'] = 'imagesHotelAdmin/'.$name;
-        // } else {
-        //     $input['image'] = "Null";
-        // }
+        
 
         // dd($input);
         
@@ -151,8 +112,18 @@ class AdminHotelController extends Controller
         // dd($input['image']);
         
        
-        Hotel::create($input);
+        $hotel_id = Hotel::create($input);
         // dd($input);
+        
+        if($request->file('image')) {
+            foreach($request->file('image') as $file){
+                $name = time().'-'.$file->getClientOriginalName();
+                $file->move('imagesHotelAdmin' , $name);
+                $saveimage['imageName'] = 'imagesHotelAdmin/'.$name;
+                $saveimage['hotel_id'] = $hotel_id->id;
+                HotelImageAdmin::create($saveimage);
+            }
+        } 
         Alert::toast('Hotel Created Successfully...', 'success');
         return redirect()->route('allhotels_admin');
         // return redirect()->route('allhotels_admin')->with('success' , 'Hotel Created Successfully...'); // without sweet alert
@@ -195,7 +166,7 @@ class AdminHotelController extends Controller
     public function update(Request $request, $id)
     {
         $hotel = Hotel::findOrfail($id);
-        $x = $request->all();
+        $x = $request->except('image');
         
 
         $request->validate([
@@ -204,7 +175,8 @@ class AdminHotelController extends Controller
             'numberofroomsinonefloor' => 'required', 
             'stars' => 'required', 
             'salaryAtNight' => 'required', 
-            'image' => 'mimes:jpeg,png,jpg|required', 
+            'image' => 'required', 
+            'image.*' => 'mimes:jpeg,png,jpg', 
         ],[
 
             'name.required' =>'Please Enter the name of hotel !!',
@@ -225,19 +197,30 @@ class AdminHotelController extends Controller
 
         ]);
 
-        if ($request->image != '') {
-            $path = public_path().'/';
+        $images = HotelImageAdmin::where('hotel_id',$id)->get();
 
-            if ($hotel->image != '' && $hotel->image != Null) {
-                $old_image = $path.$hotel->image;
-                unlink($old_image);
+        foreach($images as $image) {
+            if ($image != '') {
+                $path = public_path().'/';
+    
+                if ($image != '' && $image != Null) {
+                    $old_image = $path.$image->imageName;
+                    unlink($old_image);
+                    $image->delete();
+                }
             }
+        }
 
-            $file = $request->file('image');
+        foreach($request->file('image') as $file) {
+            // $file = $request->file('image');
             $name = time().'-'.$file->getClientOriginalName();
             $file->move('imagesHotelAdmin' , $name);
-            $x['image'] = 'imagesHotelAdmin/'.$name;
+            $editimage['imageName'] = 'imagesHotelAdmin/'.$name;
+            // HotelImageAdmin->update($editimage);
+            $hotel->images()->create($editimage);
         }
+
+        
         
         $hotel->update($x);
         Alert::info('Hotel Updated Successfully...', 'update');
@@ -259,6 +242,18 @@ class AdminHotelController extends Controller
         Alert::warning('Hotel Deleted Successfully...', 'delete');
         return redirect()->route('allhotels_admin');
     } 
+
+
+
+    // public function addImagetoFolders(Request $request)
+    // {
+    //     $image = $request->file('file');
+   
+    //     $imageName = time().'.'.$image->extension();
+    //     $image->move('images',$imageName);
+   
+    //     return response()->json(['success'=>$imageName]);
+    // }
 
 
 

@@ -4,13 +4,15 @@
 
 <meta name="_token" content="{{csrf_token()}}" />
 
-{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
+{{--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
 
 
 
-{{-- <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+{{--
+<link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" /> --}}
 
@@ -75,8 +77,8 @@
         </div>
 
         <!--begin::Form-->
-        <form class="kt-form " action="{{ route('store') }}" method="POST" enctype="multipart/form-data" id="demoform"
-            name="demoform">
+        <form class="kt-form dropzone" action="{{ route('store') }}" method="POST" enctype="multipart/form-data"
+            id="demoform" name="demoform">
             @method('POST')
             @csrf
             <div class="kt-portlet__body">
@@ -86,7 +88,7 @@
                         <label class="col-lg-2 col-form-label">Hotel Name:</label>
                         <div class="col-lg-4">
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Enter Hotel name">
+                                placeholder="Enter Hotel name" value="{{ old('name') }}">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -229,7 +231,7 @@
                         <div class="col-lg-4">
                             <input type="text" name="salaryAtNight"
                                 class="form-control  @error('salaryAtNight') is-invalid @enderror"
-                                placeholder="Enter salary">
+                                placeholder="Enter salary" value="{{ old('salaryAtNight') }}">
 
                             @error('salaryAtNight')
                             <span class="invalid-feedback" role="alert">
@@ -240,10 +242,10 @@
                     </div>
 
 
-                    {{-- <div class="form-group row">
+                    <div class="form-group row">
                         <label class="col-lg-2 col-form-label">Image Of Hotel:</label>
                         <div class="col-lg-4 dropzone" id="dropzone">
-                            <input type="file" name="image" class="form-control  @error('image') is-invalid @enderror"
+                            <input type="file" name="image[]" class="form-control  @error('image') is-invalid @enderror"
                                 placeholder="Add Image" multiple>
 
                             @error('image')
@@ -252,23 +254,71 @@
                             </span>
                             @enderror
                         </div>
-                    </div> --}}
+                    </div>
 
 
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label">Description:</label>
                         <div class="col-lg-4">
                             <textarea style="resize: none" name="description" class="form-control" id="" cols="30"
-                                rows="10" placeholder="Write Here (Optional)..."></textarea>
+                                rows="10" placeholder="Write Here (Optional)...">{{ old('name') }}</textarea>
                         </div>
                     </div>
+
+
+
+                    {{-- <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Image:</label>
+                        <div class="col-lg-8">
+                            <div class="dropzone dropzone-default dz-clickable" id="kt_dropzone_1">
+                                <div class="dropzone-msg dz-message needsclick">
+                                    <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                    <span class="dropzone-msg-desc">This is just a demo dropzone. Selected files are
+                                        <strong>not</strong> actually uploaded.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    {{-- <div class="form-group row">
+                        <div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
+                            <span>Upload file</span>
+                        </div>
+                        <div class="dropzone-previews"></div>
+                    </div> --}}
 
                 </div>
             </div>
 
 
+            <div class="kt-portlet__foot">
+                <div class="kt-form__actions">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn btn-success" id="upload" value="Add"
+                                style="display: inline-block; background-color: #fa2c27; border: 0;" class="add_button">Add</button>
+                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         {{-- <form method="post" action="{{ route('storeImage') }}" enctype="multipart/form-data" id="dropzone">
@@ -280,34 +330,22 @@
                 <div class="dropzone-previews"></div>
             </div>
         </form> --}}
-        <form method="post" action="{{ route('storeImage' , ['hotel' => $hotel]) }}" enctype="multipart/form-data" class="dropzone" id="myDropzone">
+        {{-- <form method="post" action="{{ route('storeImage' , ['hotel' => $hotel]) }}" enctype="multipart/form-data"
+            class="dropzone" id="myDropzone">
             @csrf
             <div class="form-group">
                 <div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
                     <span>Upload Images</span>
                 </div>
                 <div class="dropzone-previews"></div>
-            </div> 
-            <input type="text" value="{{ $hotel->id+1 }}" name="hotelId">
-        </form>
-
-
-
-
-
-        <div class="kt-portlet__foot">
-            <div class="kt-form__actions">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2">
-                        <button type="submit" class="btn btn-success" id="upload" value="Add"
-                            style="display: inline-block; background-color: #fa2c27; border: 0;" class="add_button"
-                            onclick="submitform()">Add</button>
-                        <button type="reset" class="btn btn-secondary">Cancel</button>
-                    </div>
-                </div>
             </div>
-        </div>
+            <input type="text" value="{{ $hotel->id+1 }}" name="hotelId">
+        </form> --}}
+
+
+
+
+
 
 
 
@@ -355,6 +393,40 @@
 <!-- end:: Content -->
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -452,12 +524,12 @@
 </script> --}}
 
 
-<script>
+{{-- <script>
     submitform = function(){
     document.getElementById("myDropzone").submit();
     document.getElementById("demoform").submit();
 }
-</script>
+</script> --}}
 
 
 
@@ -484,7 +556,7 @@
         }
 };
 </script> --}}
-{{-- 
+{{--
 <script type="text/javascript">
     // var baseUrl = "{{ url('/') }}";
     Dropzone.autoDiscover = false;
@@ -627,8 +699,72 @@
 
 
 
+{{-- <script src="{{ asset('admindashboard/js/pages/crud/file-upload/dropzonejs.js')}}" type="text/javascript"></script>
+--}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script> --}}
 
-<script>
+<!-- Adding a script for dropzone -->
+{{-- <script>
+    Dropzone.autoDiscover = false;
+    // Dropzone.options.demoform = false;	
+    let token = $('meta[name="csrf-token"]').attr('content');
+    $(function() {
+    var myDropzone = new Dropzone("div#dropzoneDragArea", { 
+        paramName: "file",
+        url: "{{ route('admin.saveImage') }}",
+        previewsContainer: 'div.dropzone-previews',
+        addRemoveLinks: true,
+        autoProcessQueue: false,
+        uploadMultiple: false,
+        parallelUploads: 1,
+        maxFiles: 1,
+        params: {
+            _token: token
+        },
+         // The setting up of the dropzone
+        init: function() {
+            var myDropzone = this;
+            //form submission code goes here
+            
+            //Gets triggered when we submit the image.
+            this.on('sending', function(file, xhr, formData){
+            //fetch the user id from hidden input field and send that userid with our image
+              let userid = document.getElementById('userid').value;
+               formData.append('userid', userid);
+            });
+            
+            this.on("success", function (file, response) {
+                //reset the form
+                $('#demoform')[0].reset();
+                //reset dropzone
+                $('.dropzone-previews').empty();
+            });
+            this.on("queuecomplete", function () {
+            
+            });
+            
+            // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+            // of the sending event because uploadMultiple is set to true.
+            this.on("sendingmultiple", function() {
+              // Gets triggered when the form is actually being sent.
+              // Hide the success button or the complete form.
+            });
+            
+            this.on("successmultiple", function(files, response) {
+              // Gets triggered when the files have successfully been sent.
+              // Redirect user or notify of success.
+            });
+            
+            this.on("errormultiple", function(files, response) {
+              // Gets triggered when there was an error sending the files.
+              // Maybe show form again, and notify user of error
+            });
+        }
+        });
+    });
+</script> --}}
+
+{{-- <script>
     $('#myDropzone').dropzone({
         maxFilesize:2,
         acceptedFiles: 'image/*',
@@ -641,7 +777,7 @@
         maxFiles: 5,
     });
      
-</script>
+</script> --}}
 
 
 
@@ -651,6 +787,5 @@
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
 @endsection

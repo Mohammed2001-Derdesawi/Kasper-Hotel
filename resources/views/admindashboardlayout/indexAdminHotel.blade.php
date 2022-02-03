@@ -262,7 +262,7 @@
             <div class="thumbnail card">
                 <div class="img-event">
                     <img style="width: 100%; height: 280px; object-fit: cover" class="group list-group-image img-fluid"
-                        src="{{ asset($hotels->image) }}" alt="" />
+                        src="{{ asset($hotels->images->first()->imageName) }}" alt="" />
                 </div>
 
                 <div class="caption card-body">

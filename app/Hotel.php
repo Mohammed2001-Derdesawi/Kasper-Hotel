@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Hotel extends Model
 {
     protected $fillable = [
-        'name', 'country_id', 'city_id','numberoffloor','numberofroomsinonefloor','stars','manager_id' , 'description' ,'salaryAtNight','image'
+        'name', 'country_id', 'city_id','numberoffloor','numberofroomsinonefloor','stars','manager_id' , 'description' ,'salaryAtNight'
     ];
 
     /**
@@ -65,7 +65,7 @@ class Hotel extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function image(): HasMany
+    public function images(): HasMany
     {
         return $this->hasMany('App\HotelImageAdmin', 'hotel_id', 'id');
     }

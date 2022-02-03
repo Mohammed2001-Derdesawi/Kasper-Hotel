@@ -117,6 +117,7 @@ Route::post('/dashboard/deletehotel', 'AdminHotelController@destroy')->name('del
 
 
 Route::get('/dashboard/admin', 'AdminHotelController@mianAdminHotel')->name('admin');
+// Route::get('/dashboard/admin/save/imagehotel', 'AdminHotelController@addImagetoFolders')->name('admin.saveImage');
 
 // Route::get('/dashboard/admin', function () {
 //     return view('admindashboardlayout.main-page');
@@ -130,10 +131,13 @@ Route::get('/dashboard/editRoom/{id}', 'AdminHotelRoomController@edit')->name('e
 Route::get('/dashboard/showRoom/{id}', 'AdminHotelRoomController@show')->name('displayRoom');
 Route::post('/dashboard/storeRoom/{id}', 'AdminHotelRoomController@store')->name('storeRoom');
 Route::post('/dashboard/updateRoom/{id}', 'AdminHotelRoomController@update')->name('updateRoom');
-Route::post('/dashboard/deleteRoom/{id}', 'AdminHotelRoomController@destroy')->name('deleteRoom');
+Route::post('/dashboard/deleteRoom', 'AdminHotelRoomController@destroy')->name('deleteRoom');
 
 
 
 
 
 Route::post('/dashboard/hotelImage/{hotel}', 'HotelImageAdminController@store')->name('storeImage');
+
+
+// Route::post('/drop/save','AdminHotelController@saveImage')->name('dropzone.store');
