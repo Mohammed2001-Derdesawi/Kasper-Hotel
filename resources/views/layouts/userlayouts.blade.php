@@ -240,6 +240,7 @@
                             <li class="divider"> </li>
 
                             <li>
+<<<<<<< HEAD
                                 <div class="nav_link_curson">
                                     <a  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -256,6 +257,10 @@
                                 <a href="">
                                      </a>
                              </form> --}}
+=======
+                                <a href="page_user_login_1.html">
+                                    <i class="icon-key"></i> Log Out </a>
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
                             </li>
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->

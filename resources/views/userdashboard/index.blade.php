@@ -110,7 +110,11 @@
                         <!-- end cloumn in home page -->
                         <div class="col-lg-6 col-xs-12 center Div_allHotel">
                             <div class="btn_photo_hotel text-center">
+<<<<<<< HEAD
                                 <button class="btn"><a href="{{route('hotel')}}">Explore All Hotel</a></button>
+=======
+                                <button class="btn"><a href="all-hotel.html">Explore All Hotel</a></button>
+>>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
                                 </div>
                           </div>
                     </div>

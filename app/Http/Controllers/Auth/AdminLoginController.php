@@ -62,7 +62,7 @@ class AdminLoginController extends Controller
 
        $validate=$this->validate($request, [
             'email' => 'required|email|exists:managers',
-            'password' => 'required|string',
+            'password' => 'required',
         ]);
         if(!$validate)
         {
@@ -95,7 +95,7 @@ class AdminLoginController extends Controller
 
         if(!auth()->guard('admin')->user()->hasRole('Super Admin'))
          return redirect()->route('admin.notify');
-         return redirect()->route('admin.roles');
+         return redirect()->route('admin');
 
        }
        else

@@ -325,7 +325,7 @@ class ManagerController extends Controller
                'github'=>'required|url|regex:'.$regex,
                'name'=>'required|max:20|string',
                'description'=>'required|max:20|string',
- //    'profile_avatar'=>'required|image|mimes:png,jpg,jpeg,gif',
+            'image'=>'required|image|mimes:png,jpg,jpeg,gif',
            ]);
            if(!$validate)
            return response()->json([
