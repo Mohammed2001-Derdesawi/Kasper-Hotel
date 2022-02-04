@@ -7,7 +7,6 @@
 {{--
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
 
 
 
@@ -17,17 +16,7 @@
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" /> --}}
 
 
-<style>
-    .dropzoneDragArea {
-        background-color: #fbfdff;
-        border: 1px dashed #c0ccda;
-        border-radius: 6px;
-        padding: 60px;
-        text-align: center;
-        margin-bottom: 15px;
-        cursor: pointer;
-    }
-</style>
+
 <style>
     .add_button {
         color: #fff;
@@ -37,10 +26,7 @@
 
     }
 
-    .dropzone {
-        border: 1px solid #fff;
-        border-radius: 8px;
-    }
+
 </style>
 @endsection
 

@@ -5,11 +5,6 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-<<<<<<< HEAD
-=======
-use App\Providers\RouteServiceProvider;
-use RealRashid\SweetAlert\Facades\Alert;
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -41,7 +36,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
     // protected $redirectTo = '/dashbaord';
 
     // protected function redirectTo()
@@ -56,10 +50,6 @@ class LoginController extends Controller
            return redirect()->route('dahboard');
 
     }
-=======
-    protected $redirectTo = RouteServiceProvider::HOME;
-
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
 
     protected function authenticated(Request $request, $user)
     {
@@ -87,8 +77,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
 }

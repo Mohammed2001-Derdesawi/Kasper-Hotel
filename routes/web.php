@@ -83,6 +83,23 @@ Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
     Route::post('/managers/add','ManagerController@store')->name('managers.add');
     Route::post('/imagestore','ManagerController@storeImage')->name('managers.add.photo');
     Route::post('/managers/remove/{id}','ManagerController@destroy')->name('managers.remove');
+
+    Route::get('/countries','CountryController@index')->name('country');
+    Route::post('/countries/remove/{id}','CountryController@destroy')->name('country.remove');
+    Route::post('/countries/edit','CountryController@update')->name('country.edit');
+    Route::post('/countries/add','CountryController@store')->name('country.add');
+
+
+    Route::get('/cities','CityController@index')->name('city');
+    Route::post('/cities/remove/{id}','CityController@destroy')->name('city.remove');
+    Route::post('/cities/edit','CityController@update')->name('city.edit');
+    Route::post('/cities/add','CityController@store')->name('city.add');
+
+
+
+
+
+
     Route::get('/managers/{id}/edit','ManagerController@edit')->name('managers.edit');
     Route::post('/managers/{id}/update','ManagerController@update')->name('managers.update');
     Route::get('/profile/{id}','ManagerController@profile')->name('profile');
