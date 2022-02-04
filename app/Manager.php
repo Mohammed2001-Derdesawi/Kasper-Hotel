@@ -10,11 +10,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Manager extends Authenticatable
 {
-   use HasRoles,CanResetPassword,Notifiable;
+   use HasRoles,CanResetPassword,Notifiable,SoftDeletes;
    protected $guard ='admin';
 
 
@@ -40,6 +41,15 @@ class Manager extends Authenticatable
     {
         return $this->hasMany(Hotel::class, 'manager_id', 'id');
     }
+     /**
+      * Get all of the country for the Manager
+      *
+      * @return \Illuminate\Database\Eloquent\Relations\HasMany
+      */
+     public function country(): HasMany
+     {
+         return $this->hasMany(Country::class, 'manager_id', 'id');
+     }
 
 
 

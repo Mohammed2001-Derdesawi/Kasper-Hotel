@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Country;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -14,7 +15,9 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $cities=City::paginate(10);
+        $countries=Country::all();
+        return view('admindashboardlayout.city',compact('cities','countries'));
     }
 
     /**
@@ -35,7 +38,16 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:cities'
+        ] , [
+            'name.required' => 'city name is required',
+            'name.unique' => 'city name reserved.. Please try again',
+        ]);
+
+
+
+        City::create($request->all());
     }
 
     /**
@@ -67,9 +79,31 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(Request $request)
     {
-        //
+        $city=City::findOrFail($request->cityid);
+        if($request->name!=$city->name)
+        {
+            $request->validate([
+                'name' => 'required|unique:cities'
+            ] , [
+                'name.required' => 'city name is required',
+                'name.unique' => 'city name reserved.. Please try again',
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => 'required'
+            ] , [
+                'name.required' => 'city name is required',
+
+            ]);
+        }
+
+         $city->update([
+               'name'=>$request->name,
+               'manager_id'=>$request->country_id
+         ]);
     }
 
     /**
@@ -78,8 +112,10 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(City $city)
+    public function destroy($id)
     {
-        //
+        $city=City::findOrFail($id);
+        $city->delete();
+        return redirect()->route('admin.city');
     }
 }

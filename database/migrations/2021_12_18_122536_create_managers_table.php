@@ -22,13 +22,10 @@ class CreateManagersTable extends Migration
             $table->string("facebook");
             $table->string("twitter");
             $table->string("github");
+            $table->softDeletes();
 
 
-            $table->string("description");
-            $table->string("image");
-            $table->string("facebook");
-            $table->string("twitter");
-            $table->string("github");
+
 
             $table->timestamps();
         });

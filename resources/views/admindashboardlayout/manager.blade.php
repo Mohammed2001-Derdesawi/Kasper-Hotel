@@ -53,6 +53,12 @@
                                    @endphp
 
                                 @foreach ($managers as $manager)
+                                @if (auth()->guard('admin')->user()->id==$manager->id)
+                                   @php
+                                       continue;
+                                   @endphp
+
+                                @endif
                                 <tr>
                                   <td>{{++$i}}</td>
                                   <td>{{$manager->name}}</td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Manager;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -14,18 +15,20 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries=Country::paginate(10);
+        $manager=Manager::all();
+        return view('admindashboardlayout.country',compact('countries','manager'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    // /**
+    //  * Show the form for creating a new resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,17 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|unique:countries'
+        ] , [
+            'name.required' => 'country name is required',
+            'name.unique' => 'country name reserved.. Please try again',
+        ]);
+
+
+
+        Country::create($request->all());
     }
 
     /**
@@ -67,9 +80,35 @@ class CountryController extends Controller
      * @param  \App\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request)
     {
-        //
+        $country=Country::findOrFail($request->countryid);
+        if($request->name!=$country->name)
+        {
+            $request->validate([
+                'name' => 'required|unique:countries'
+            ] , [
+                'name.required' => 'country name is required',
+                'name.unique' => 'country name reserved.. Please try again',
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => 'required'
+            ] , [
+                'name.required' => 'country name is required',
+
+            ]);
+        }
+
+         $country->update([
+               'name'=>$request->name,
+               'manager_id'=>$request->manager_id
+         ]);
+
+
+
+
     }
 
     /**
@@ -78,8 +117,10 @@ class CountryController extends Controller
      * @param  \App\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy($id)
     {
-        //
+        $country=Country::findOrFail($id);
+        $country->delete();
+        return redirect()->route('admin.country');
     }
 }
