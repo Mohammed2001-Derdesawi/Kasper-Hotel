@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Country extends Model
 {
     protected $fillable = [
-        'name','manager_id',
+        'name' , 'manager_id' , 'description'
     ];
 
     /**

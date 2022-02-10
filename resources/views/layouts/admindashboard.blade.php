@@ -574,14 +574,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll ps"
                                                 data-scroll="true" data-height="300" data-mobile-height="200"
                                                 style="height: 300px; overflow: hidden;">
-
+                                                @php
+                                                $admin = auth()
+                                                    ->guard('admin')
+                                                    ->user();
+                                                @endphp
 
                                                 @if (auth()->guard('admin')->user()->hasRole('Super Admin'))
-                                                    @php
-                                                        $admin = auth()
-                                                            ->guard('admin')
-                                                            ->user();
-                                                    @endphp
+                                               
                                                     @foreach ($admin->unreadNotifications()->where('type', 'App\Notifications\ManagerLogin')->latest()->take(10)->get() as $notification)
                                                         <a href="{{ route('admin.readNotify', $notification->id) }}"
                                                             class="kt-notification__item" data-toggle="tooltip"

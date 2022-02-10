@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Hotel extends Model
 {
+
+
     protected $fillable = [
-        'name', 'country_id', 'city_id','numberoffloor','numberofroomsinonefloor','stars','manager_id'
+        'name', 'country_id', 'city_id','numberoffloor',
+        'numberofroomsinonefloor' , 'stars','manager_id','salaryAtNight','description'
     ];
 
     /**

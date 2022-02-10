@@ -1,3 +1,5 @@
+
+
 *{
 
 	box-sizing: border-box;
@@ -85,6 +87,10 @@ li.active i.icon-navbar-slide {
     .page-header.navbar {
         background: #1f1f1f;
     }
+    .btn_photo_hotel button{
+        width: 170px!important;
+        margin-right: 105px!important;
+           }
 }
 
 .page-sidebar .page-sidebar-menu>li.active.open>a, .page-sidebar .page-sidebar-menu>li.active>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a {
@@ -339,6 +345,7 @@ a:hover , a:focus{
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
+  text-shadow: 1px 1px 3px #fa2c27;
 }
 
 
@@ -361,6 +368,14 @@ a:hover , a:focus{
     background-color: #fa2c27;
     padding: 15px;
     border-radius: 5px!important;
+
+  }
+
+  .btn_photo_hotel button {
+    font-size: 22px!important;
+    font-weight: 600;
+    letter-spacing: 0.6;
+    color: #fff!important;
   }
 
   .btn_photo_hotel button a{
@@ -397,6 +412,13 @@ a:hover , a:focus{
     background-position: center !important;
     background-size: cover !important;
     width: 380px !important;
+    min-height: 400px !important;
+  }
+
+  .image_view_slider{
+    background-position: center !important;
+    background-size: cover !important;
+    width: 100% !important;
     min-height: 400px !important;
   }
 
@@ -438,6 +460,10 @@ li{
 .items-swiper ul , .botom-item-swiper{
     display: flex;
     width: 100%;
+}
+
+.items-swiper a img{
+    max-height: 280px!important;
 }
 .pa_left{
  padding-left: 0;
@@ -499,10 +525,10 @@ padding-right: 10px;
 .ul-star-swiper{
     display: flex;
     position: absolute;
-   top: 176px;
-   left: 5px!important;
-   margin: 0px!important;
-   padding: 0px!important;
+    top: 210px;
+    left: 5px!important;
+    margin: 0px!important;
+    padding: 0px!important;
 }
 
 .ul-star-swiper li{
@@ -513,7 +539,7 @@ padding-right: 10px;
 .rate-class-name{
     position: absolute;
     left:200px;
-    top: 170px;
+    top: 210px;
     display: flex;
 }
 
@@ -703,11 +729,7 @@ padding-right: 10px;
 }
 
 
-@media (min-width:320px) and (max-width:767px) {
-    .img_location img{
-        display: none;
-      }
-}
+
 
 .titil_location .btn_location .btn , .btn_Viewhotel{
     height: 50px;
@@ -754,3 +776,7 @@ padding-right: 10px;
 
   /* <!--end location-section --> */
 
+
+  .fa-map-marker-alt{
+    color: #Fa2c27!important;
+}

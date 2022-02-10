@@ -27,7 +27,7 @@ class Authenticate extends Middleware
             toast('You Must Login First','warning');
            return '/';
     }
-    return route('index');
+             return route('index');
 
 }
 

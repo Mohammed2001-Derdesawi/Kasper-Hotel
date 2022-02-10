@@ -97,16 +97,19 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        Details
+                                                              Details
                                     </button>
                                     <div id="drop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                         <a href="#" class="dropdown-item" id="userinfo" data-toggle="modal"
                                             data-target="#detailsUser" data-email="{{ $user->email }}"
-                                            data-name="{{ $user->name }}" data-hotel="{{$user->bookeds()->orderBy('id','desc')->first()->room->hotel->name}}"
+                                            data-name="{{ $user->name }}"
+                                            @if($user->bookeds()->first() != null )
+                                            data-hotel="{{$user->bookeds()->orderBy('id','desc')->first()->room->hotel->name}}"
                                             data-country="{{$user->bookeds()->orderBy('id','desc')->first()->room->hotel->country->name}}"
                                             data-startdate="{{$user->bookeds()->orderBy('id','desc')-> first()  ->StartDate}}"
                                             data-enddate="{{$user->bookeds()->orderBy('id','desc')->first()->EndDate}}"
+                                            @endif
 
 
                                             >

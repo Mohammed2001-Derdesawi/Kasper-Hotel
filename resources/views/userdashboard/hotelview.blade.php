@@ -5,6 +5,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/reset.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/plugins.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/color.css')}}">
+    {{--  <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/bootstrap.min.css')}}">  --}}
     <link type="text/css" rel="stylesheet" href="{{asset('userdashboard/css/style-all-hotel.css')}}">
     <link rel="stylesheet" href="{{asset("maincustomersiteresources/css/swiper-bundle.min.css")}}">
 <style>
@@ -62,11 +63,11 @@ object-fit: cover;
             <ul class="page-breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="index.html">Home</a>
+                    <a href="{{ route('dashboard') }}">Home</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <span>Airline</span>
+                    <span>View Rooms</span>
                 </li>
             </ul>
 
@@ -83,14 +84,16 @@ object-fit: cover;
 
         <div class="portlet light "  style="padding: 0 !important; ">
          <div class="row">
-             <div class="col-lg-6">
+             <div class="col-lg-6 col-md-6">
                 <div class="swiperhotelview">
                     <div class="swiper mySwiper" style="box-shadow: 0px !important;">
                         <div class="swiper-wrapper">
-                          <div class="swiper-slide" style="box-shadow: 0px !important;"><img style="box-shadow: 0px !important;" src="{{asset('userdashboard/images/slider1.jpg')}}" alt="" class="img-responsive"></div>
-                          <div class="swiper-slide" style="box-shadow: 0px !important;"><img style="box-shadow: 0px !important;" src="{{asset('userdashboard/images/slider1.jpg')}}" alt="" class="img-responsive" ></div>
-                          <div class="swiper-slide" style="box-shadow: 0px !important;"><img  style="box-shadow: 0px !important;" src="{{asset('userdashboard/images/slider1.jpg')}}" alt="" class="img-responsive" ></div>
-
+                      @foreach($roomhotel->images as $image)
+                        <div class="swiper-slide image_view_slider" style="box-shadow: 0px !important;">
+                            <img style="box-shadow: 0px !important;"
+                             src="{{asset($image->imageName)}}" alt="" class="img-responsive">
+                          </div>
+                        @endforeach
 
                         </div>
                         <div class="swiper-button-next" style="color: #fa2c27 !important; "></div>
@@ -102,29 +105,13 @@ object-fit: cover;
 
 
 
-         <div class="col-lg-6">
+         <div class="col-lg-6 col-md-6">
 
         <div class="after-swiperhotelview" style="margin: 50px 20px;" >
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="nameofthehotel" style="display: flex !important; justify-content: flex-start !important; align-items: center !important;">
-               <span style="background-color: #fa2c27; padding: 10px !important; color: #fff; font-weight: 600; letter-spacing: 1px;">
-                   7.8
-               </span>
-               <strong style="margin:0 10px;color: #1f1f1f !important; font-size: 18px !important;">Name of The Hotel</strong>
-                    </div>
-                    <div class="distanition" style="margin: 10px 0;">
-                        <i class="fas fa-map-marker-alt" style="color: #fa2c27;"></i>
-                        <i style="color: #1f1f1f; font-size: 14px;">
-                            Al Masion Main Street, Sodqi Al Dajani, Ramallah, 0097, Palestinian Territories</i>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-12">
+                <div class="col-lg-12"><br><br>
                   <span class="property"><strong>Property highlights</strong></span>
-
-                </div>
+                </div><br>
                 <div class="col-lg-12">
                      <div class="highlights">
                         <div class="amenities">
@@ -187,292 +174,133 @@ object-fit: cover;
 
         <div class="row">
             <div class="col-lg-12">
-                    <h1 class="text-center" style="color: #1f1f1f; margin: 50px 0; font-size: 30px !important; font-weight: 700; letter-spacing: 1px;">Avaliable Rooms</h1>
+                    <h1 class="text-center Title_Application" >Avaliable Rooms</h1>
             </div>
-            <div class="col-lg-12">
-                <div class="listing-item-container init-grid-items fl-wrap">
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/8.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/1.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Alisa Noory</strong></span>
-                                </div>
-                                <div class="sale-window">Sale 20%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong>Very Good</strong>27 Reviews </div>
-                                        <span>5.0</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">Premium Plaza Hotel</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#0" class="map-item"><i class="fas fa-map-marker-alt"></i> 27th Brooklyn New York, USA</a></div>
-                                    </div>
-                                </div>
-                                <p>Sed interdum metus at nisi tempor laoreet. Integer gravida orci a justo sodales.</p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-category-price">Awg/Night <span>$ 320</span></div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#0" class="map-item"><i class="fa fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>1</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fa fa-heart"></i>
-                                            <span class="geodir-opt-tooltip">Save</span>
-                                        </a>
-                                        <a href="#" class="geodir-js-booking"><i class="fa fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/4.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/2.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Julie Cramp</strong></span>
-                                </div>
-                                <div class="sale-window big-sale">Sale 50%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong>Good</strong>12 Reviews </div>
-                                        <span>4.2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">Grand Hero Palace</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#1" class="map-item"><i class="fas fa-map-marker-alt"></i> W 85th St, New York,  USA</a></div>
-                                    </div>
-                                </div>
-                                <p> Morbi suscipit erat in diam bibendum rutrum in nisl. Aliquam et purus ante.</p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-opt-link">
-                                        <div class="geodir-category-price">Awg/Night <span>$ 120</span></div>
-                                    </div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#1" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>2</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                                        <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/6.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/3.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Andy Moore</strong></span>
-                                </div>
-                                <div class="sale-window">Sale 28%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong>Good</strong>6 Reviews </div>
-                                        <span>4.7</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap title-sin_item">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="listing-single.html">Park Central</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#2" class="map-item"><i class="fas fa-map-marker-alt"></i>40 Journal Square Plaza, NJ,  USA</a></div>
-                                    </div>
-                                </div>
-                                <p> Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa.</p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-opt-link">
-                                        <div class="geodir-category-price">Awg/Night <span>$ 80</span></div>
-                                    </div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>3</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                                        <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/2.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/4.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Mary Jones</strong></span>
-                                </div>
-                                <div class="sale-window">Sale 20%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="3"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong>Pleasant</strong>10 Reviews </div>
-                                        <span>3.2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap title-sin_item">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">Holiday Home</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#3" class="map-item"><i class="fas fa-map-marker-alt"></i> 75 Prince St,  NY, USA</a></div>
-                                    </div>
-                                </div>
-                                <p>  Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend.</p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-opt-link">
-                                        <div class="geodir-category-price">Awg/Night <span>$ 50</span></div>
-                                    </div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#3" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>4</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                                        <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/3.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/5.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Fider Mamby</strong></span>
-                                </div>
-                                <div class="sale-window">Sale 10%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong>Very Good</strong>102 Reviews </div>
-                                        <span>4.7</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap title-sin_item">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">Gold Plaza Hotel</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#4" class="map-item"><i class="fas fa-map-marker-alt"></i> 34-42 Montgomery St , NY, USA</a></div>
-                                    </div>
-                                </div>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet . </p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-opt-link">
-                                        <div class="geodir-category-price">Awg/Night <span>$ 210</span></div>
-                                    </div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#4" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>5</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                                        <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                    <!-- listing-item  -->
-                    <div class="listing-item">
-                        <article class="geodir-category-listing fl-wrap">
-                            <div class="geodir-category-img">
-                                <a href="#"><img src="{{asset('userdashboard/images/gal/5.jpg')}}" alt=""></a>
-                                <div class="listing-avatar"><a href="#"><img src="{{asset('userdashboard/images/avatar/1.jpg')}}" alt=""></a>
-                                    <span class="avatar-tooltip">Added By  <strong>Alisa Noory</strong></span>
-                                </div>
-                                <div class="sale-window big-sale">Sale 70%</div>
-                                <div class="geodir-category-opt">
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
-                                    <div class="rate-class-name">
-                                        <div class="score"><strong> Good</strong>8 Reviews </div>
-                                        <span>4.1</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="geodir-category-content fl-wrap title-sin_item">
-                                <div class="geodir-category-content-title fl-wrap">
-                                    <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">Moonlight Hotel</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#5" class="map-item"><i class="fas fa-map-marker-alt"></i> 70 Bright St New York, USA</a></div>
-                                    </div>
-                                </div>
-                                <p> Class aptent taciti  Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend.</p>
-                                <ul class="facilities-list fl-wrap">
-                                    <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
-                                    <li><i class="fal fa-parking"></i><span>Parking</span></li>
-                                    <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
-                                    <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
-                                </ul>
-                                <div class="geodir-category-footer fl-wrap">
-                                    <div class="geodir-opt-link">
-                                        <div class="geodir-category-price">Awg/Night <span>$ 105</span>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="container">
+                @foreach ($roomhotel->rooms as $roomhotels)
+                @if ($roomhotels->isclean == 1)
+                <div class="listing-item-container init-grid-items">
+                   <!-- listing-item  -->
+                   <div class="listing-item">
+                       <article class="geodir-category-listing fl-wrap">
+                           <div class="geodir-category-img">
+                                <img src="{{asset($roomhotels->imageRoom)}}" alt=""></a>
+                               <div class="listing-avatar">
+                                </a>
+                               </div>
+                               <div class="geodir-category-opt">
+                                   <div class="listing-rating card-popup-rainingvis" >
+                                    <ul class="ul-star-swiper">
+                                        @for($i = 0; $i < $roomhotels->rating ; $i++)
+                                        <li><i class="fa fa-star"></i></li>
+                                        @endfor
 
-                                        </div>
+                                    </ul>
+                                   </div>
+                                   <div class="rate-class-name">
+                                       <span style="color: #fa2c27;background-color: #fff">{{ $roomhotels->rating }}</span>
+                                   </div>
+                               </div>
+                           </div>
 
-                                    </div>
-
-                                    <div>
-
-                                    </div>
-                                    <div class="geodir-opt-list">
-                                        <a href="#5" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>6</strong></span></a>
-                                        <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                                        <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find Directions</span></a>
-                                    </div>
+                           <div class="geodir-category-content fl-wrap">
+                               <div class="geodir-category-content-title fl-wrap">
+                                   <div class="geodir-category-content-title-item">
+                                       <div class="geodir-category-location fl-wrap">
+                                              <h6 class="title_numpeople">
+                                                  <i class="fas fa-users icon_view"></i> Number of people in the room : <strong> {{ $roomhotels->people}} people</strong></h6>
+                                            </div>
+                                   </div>
+                               </div>
+                                  <h6 class="title_numpeople">The Floor :
+                                   <strong>{{ $roomhotels->floor }}</strong></h6> <br>
+                                   <h6 class="title_numpeople">Room Type : <strong>{{ $roomhotels->roomType }}</strong></h6><br>
+                                   <h6 class="title_numpeople"> Possibility to register :
+                                @if ($roomhotels->isclean != 0)
+                                    <strong>Open</strong>
+                               @else{
+                                <strong>close</strong>
+                               }
+                                @endif
+                                   </h6><br>
+                               <ul class="facilities-list fl-wrap">
+                                   <li><i class="fal fa-wifi"></i><span>Free WiFi</span></li>
+                                   <li><i class="fal fa-parking"></i><span>Parking</span></li>
+                                   <li><i class="fal fa-smoking-ban"></i><span>Non-smoking Rooms</span></li>
+                                   <li><i class="fal fa-utensils"></i><span> Restaurant</span></li>
+                               </ul>
+                               <div class="geodir-category-footer fl-wrap">
+                                   <div class="geodir-category-price">Awg/Night <span>$ {{ $roomhotels->room_price }}</span>
                                 </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- listing-item end -->
-                </div>
+
+                                <div class="">
+
+                                    <!-- Button trigger modal -->
+                                    {{--  <a href="{{ url('dashboard/hotel/view/'.$roomhotels->hotel->id.'/'.$roomhotels->id) }}"->{{ $roomhotels->name }}">  --}}
+                                        <button type="submit" class="BookNow" data-toggle="modal" data-target="#exampleModalCenter"
+                                            > Book Now</button>
+                                    {{--  </a>  --}}
+
+
+
+                                </div>
+                                   <div class="geodir-opt-list">
+                                       <a href="#0" class="map-item"><i class="fa fa-map-marker-alt"></i></a>
+                                       <a href="#" class="geodir-js-favorite"><i class="fa fa-heart"></i>
+
+                                       </a>
+                                   </div>
+                               </div>
+                           </div>
+
+                       </article>
+                   </div>
+                   <!-- listing-item end -->
+                   <!-- Modal -->
+                   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                       <div class="modal-content">
+                         <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                             </button>
+                           <h5 class="modal-title text-center" id="exampleModalLongTitle">Room reservations</h5>
+                         </div>
+
+                     <form action=" {{ url('/dashboard/hotel/index') }} " method="POST">
+                         @csrf
+                         <div class="modal-body text-center">
+                           <label for="input_1"></label>
+                           <input type="text" name=""  id="input_1"  required><br><br>
+                           <label for="input_2"></label>
+                           <input type="text" name="" id="input_2"  required><br><br>
+                           <label for="input_3"></label>
+                           <input type="text" name="" id="input_3"  required><br><br>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="closeBookNow " data-dismiss="modal">Close</button>
+                          <button type="button" class="BookNow">Book Now</button>
+                        </div>
+                     </form>
+                       </div>
+                     </div>
+                   </div>
+
+                @endif
+
+           @endforeach
+
+               </div>
+
+
             </div>
 
 
-
+            <!-- pagination-->
+            <div class="d-flex justify-content-center">
+               {{--  {{  $roomhotel->links() }}  --}}
+            </div>
 
         </div>
 
@@ -480,11 +308,9 @@ object-fit: cover;
 
 
 
-<<<<<<< HEAD
+
+
         </div>
-=======
-        
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
 
 
 
@@ -507,6 +333,7 @@ object-fit: cover;
 @section('scripts')
 <script src="{{asset("maincustomersiteresources/Js/swiper-bundle.min.js")}}"></script>
 <script type="text/javascript" src="{{asset('userdashboard/js/plugins.js')}}"></script>
+{{--  <script type="text/javascript" src="{{asset('userdashboard/js/bootstrap.min.js')}}"></script>  --}}
 <script type="text/javascript" src="{{asset('userdashboard/js/scripts.js')}}"></script>
 <script type="text/javascript" src="{{asset('userdashboard/js/mapplugins.js')}}"></script>
 <script type="text/javascript" src="{{asset('userdashboard/js/maps.js')}}"></script>

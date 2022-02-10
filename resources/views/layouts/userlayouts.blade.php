@@ -223,24 +223,23 @@
                                     <span class="badge badge-success"> 7 </span>
                                 </a>
 
-                            <li>
-                                <!-- taxi.html -->
-                                <a class="nav_link_curson" href="">
-                                    <i class="icon-rocket"></i> Book Taxi
-                                    <span style="color: #fa2c27;"> &nbsp; (soon) </span>
-                                </a>
-                            </li>
-                            <li>
-                                <!-- Airline.html -->
-                                <a class="nav_link_curson" href="">
-                                    <i class="icon-lock"></i> Book Airline
-                                    <span style="color: #fa2c27;"> &nbsp; (soon) </span>
-                                 </a>
-                            </li>
-                            <li class="divider"> </li>
+                                <li>
+                                    <!-- taxi.html -->
+                                    <a class="nav_link_curson" href="">
+                                        <i class="icon-rocket"></i> Book Taxi
+                                        <span style="color: #fa2c27;"> &nbsp; (soon) </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- Airline.html -->
+                                    <a class="nav_link_curson" href="">
+                                        <i class="icon-lock"></i> Book Airline
+                                        <span style="color: #fa2c27;"> &nbsp; (soon) </span>
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
 
                             <li>
-<<<<<<< HEAD
                                 <div class="nav_link_curson">
                                     <a  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -257,11 +256,9 @@
                                 <a href="">
                                      </a>
                              </form> --}}
-=======
                                 <a href="page_user_login_1.html">
                                     <i class="icon-key"></i> Log Out </a>
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
-                            </li>
+                         </li>
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <!-- <li class="dropdown dropdown-extended quick-sidebar-toggler">
@@ -310,7 +307,8 @@
             <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu "
                 data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                 <li class="nav-item start active open">
-                    <a href="{{route('dashboard')}}" class="nav-link nav-toggle">
+
+                    <a href="{{ route('dashboard') }}" class="nav-link nav-toggle">
                         <i class="icon-home icon-navbar-slide"></i>
                         <span class="title">Home</span>
                         <!-- <span class="selected"></span> -->
@@ -327,21 +325,21 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item  ">
-                            <a href="{{route('allhotels')}}" class="nav-link ">
+                            <a href="{{route('hotel')}}" class="nav-link ">
                                 <span class="title">Book a Hotel Ticket</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link nav_link_curson">
+                            <a href="{{ route('airline') }}" class="nav-link ">
                                 <span class="title">Airline Ticket Booking</span>
-                                <span style="color: #fa2c27;"> &nbsp; (soon) </span>
+                                {{--  <span style="color: #fa2c27;"> &nbsp; (soon) </span>  --}}
                             </a>
                         </li>
 
-                        <li class="nav-item  ">
-                            <a href="" class="nav-link nav_link_curson">
+                        <li class="nav-item ">
+                            <a href="{{ route('taxi') }}" class="nav-link">
                                 <span class="title">Book a Taxi Ticket</span><br>
-                                <span style="color: #fa2c27;"> &nbsp; (soon) </span>
+                                {{-- <span style="color: #fa2c27;"> &nbsp; (soon) </span> --}}
                             </a>
                         </li>
                         <li class="nav-item"  >

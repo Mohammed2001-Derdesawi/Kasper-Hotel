@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class City extends Model
 {
     protected $fillable = [
-        'name','country_id',
+        'name','country_id','description_city'
     ];
     /**
      * Get the user that owns the City
@@ -28,6 +28,6 @@ class City extends Model
  */
 public function hotels(): HasMany
 {
-    return $this->hasMany(Comment::class, 'city_id', 'id');
+    return $this->hasMany(Hotel::class, 'city_id', 'id');
 }
 }

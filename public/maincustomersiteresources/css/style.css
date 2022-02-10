@@ -17,11 +17,12 @@ html {
 body{
 font-family: kasper_font!important;
 position: relative;
+overflow-x: hidden!important;
 }
 
 :root{
-    --yellowcolor: #fa2c27;  
-    --blackcolor: black;  
+    --yellowcolor: #fa2c27;
+    --blackcolor: black;
     --weightcolor: #fff;
     --graycolor: gray;
  }
@@ -59,7 +60,7 @@ position: relative;
 
 @media (min-width:1199px) {
     .navbar-left {
-        margin-left: 150px;
+        /* margin-left: 150px; */
     }
 }
 .nav-sec .border-nav{
@@ -70,8 +71,8 @@ position: relative;
     z-index: 100;
     width: 100%;
     top: 0;
-  
-  
+
+
 }
 .nav-sec .navbar-default{
 background-color: #1f1f1f;
@@ -92,7 +93,7 @@ padding: 0 !important;
 
 .nav-sec .navbar-brand b{
     color:#fa2c27;
-    
+
 }
 
 
@@ -102,8 +103,8 @@ padding: 0 !important;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
-    
-    
+
+
 
 }
 
@@ -116,13 +117,13 @@ padding: 0 !important;
     .nav-sec .navbar-default .navbar-nav>li>a{
 
         font-size: 14px;
-      
+
     }
     .nav-sec .navbar-brand{
         font-size: 28px;
        margin-top: 8px !important;
-       
-      
+
+
     }
 
 }
@@ -133,7 +134,7 @@ padding: 0 !important;
 }
 
 .nav-sec .navbar-default .navbar-nav>.active>a,
-.nav-sec .navbar-default .navbar-nav>.active>a:focus, 
+.nav-sec .navbar-default .navbar-nav>.active>a:focus,
 .nav-sec .navbar-default .navbar-nav>.active>a:hover{
      background-color:#fa2c27;
      color: #fff;
@@ -151,7 +152,7 @@ padding: 0 !important;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.5px;
- 
+
 }
 
 .nav-sec  .btn-danger.focus, .btn-danger{
@@ -176,12 +177,7 @@ padding: 0 !important;
         padding-left: 50px !important;
     }
 }
-@media (max-width:768px) {
-    .sign-in{
-        margin-left: 10px;
-    }
-    
-}
+
 /* .sign-up:hover {
     color: #fff !important;
     background-color: #1d6d8a !important;
@@ -195,7 +191,7 @@ padding: 0 !important;
 
 .main-slider .carousel-inner .item{
     min-height: 150px;
-    
+
 }
 
 .item {
@@ -249,6 +245,8 @@ padding: 0 !important;
     font-size: 20px;
     color: #555;
     width: 100%;
+    font-weight: 600;
+    padding-top: 0;
 }
 
 
@@ -279,17 +277,19 @@ padding: 0 !important;
 
 /* .secvices-sec .box-Services:hover{
     transform:scale(1.08);
-    
+
 } */
 
-
+.box-Services {
+    margin-bottom: 20px;
+}
 @media (max-width:1199px) {
     .box-Services {
-        margin-bottom: 40px;
+        /* margin-bottom: 40px; */
     }
-    
 
-    
+
+
 }
 
 
@@ -298,10 +298,10 @@ padding: 0 !important;
         padding-top: 35px;
         padding-bottom: 50px;
     }
-   
+
 }
 
-  
+
 @media (min-width:994px) and (max-width:1999px) {
     .box-Services img {
         height: 280px;
@@ -316,7 +316,7 @@ padding: 0 !important;
     background-color: rgba(238, 238, 238, 0.493);
     padding: 30px 0 50px;
     margin-top: 80px;
-    
+
 }
 .about-sec .title-about-sec{
     text-align: center;
@@ -341,14 +341,23 @@ padding: 0 !important;
     padding: 20px 0 5px;
     letter-spacing: 1px;
 }
-.about-sec .about-sev-company .img-about img{
-    min-height: 550px;
+
+.item_aboute{
+    height: 350px!important;
+    margin-top: 15px;
+    padding: 35px 10px;
+}
+
+.item_aboute img{
+    border-radius: 6px;
+    box-shadow: 2px 1px 5px #fa2c27;
+
 }
 .about-sec .about-sev-company .p-about h1{
     color: #fa2c27;
     font-size: 40px;
     font-weight: 600;
- 
+
 
 }
 .about-sec .about-sev-company .p-about p{
@@ -357,7 +366,7 @@ padding: 0 !important;
     line-height: 25px;
     color: #777;
     padding: 20px 0;
-    
+
 }
 .about-sec .flexreverse-about  div{
           margin: 50px auto;
@@ -366,13 +375,13 @@ padding: 0 !important;
     .about-sec .flexreverse-about {
         display: flex;
         flex-direction: column-reverse;
-        
+
 
     }
     .about-sec .flexreverse-about div{
         margin: 0;
     }
-    
+
 }
 /* End of about-sec */
 
@@ -405,7 +414,7 @@ padding: 0 !important;
   .swiper-slide .manager-slide{
       width: 100%;
       height: 300px;
-     
+
   }
   .swiper-slide img {
     display: block;
@@ -444,11 +453,11 @@ padding: 0 !important;
   }
   .swiper-slide .icons-managers li:nth-child(1) a{
 
-  
+
     color: #fff;
-    
-  
-    
+
+
+
   }
   .swiper-slide .icons-managers li:nth-child(2) a{
     background-color: #1f1f1f;
@@ -462,7 +471,7 @@ padding: 0 !important;
     text-align: center;
     padding: 10px 0;
 
-} 
+}
 .manegers-sec .title-managers-sec h1{
     color: #fa2c27;
     font-size: 40px;
@@ -471,10 +480,10 @@ padding: 0 !important;
 .manegers-sec .title-managers-sec p {
     font-size: 18px;
     font-weight: 700;
-  
+
     color: #777;
     letter-spacing: 1px;
-   
+
 }
 
 /*End of swiper */
@@ -493,7 +502,7 @@ padding: 0 !important;
     padding: 50px 0;
     /* background-color: #1f1f1f; */
 
- 
+
 }
 .locations-sec .title-locations{
     text-align: center;
@@ -679,6 +688,7 @@ padding: 0 !important;
 
 .footer-sec .social .box-2 {
   padding: 30px 0px 32px 0;
+  /* max-height: 200px; */
 }
 
 .footer-sec .social .box-2 .box-2-1 {
@@ -740,10 +750,11 @@ padding: 0 !important;
 .footer-sec .social .box-3 {
   padding: 30px 32px 20px 0;
   border-bottom: 0.7px solid #585858;
+  /* max-height: 200px; */
 }
 
 .footer-sec .social .box-3:nth-child(2) ul li a i {
-   width: 200px;
+   width: 20px;
    height: 40px;
   }
 
@@ -756,7 +767,7 @@ padding: 0 !important;
 }
 
 .footer-sec .social .box-3 ul li {
-  padding-right: 40px;
+  padding-right: 28px;
   padding-left: 40px;
 }
 
@@ -787,6 +798,13 @@ padding: 0 !important;
   .footer-sec .social .border-r {
     border-right: none;
   }
+  .footer-sec .social .box-2 .box-2-1 {
+    display: block;
+  }
+  .footer-sec .social .box-2 .box-2-1 .d1,
+.footer-sec .social .box-2 .box-2-1 .d2 {
+   margin-top: 35px;
+}
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -853,7 +871,7 @@ padding: 0 !important;
 
   .footer-sec .social .box-1 {
     padding: 37px 0;
-    
+    /* max-height: 200px; */
   }
   .footer-sec .social .box-1 img{
     padding-left: 70px;
@@ -896,20 +914,21 @@ padding: 0 !important;
 }
 
 .desc_blog{
-    margin: 150px 0;
-
+    margin: 120px 0;
 }
 
 .item_right{
     border: 1px solid rgb(218, 218, 218);
     padding: 25px;
     border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #fa2c27;
 }
 
 .item_right .img_blog img {
     width: 100%;
-   min-height: 270px;
-    border-radius: 0;
+   max-height: 380px;
+    border-radius: 5px;
  }
 
  .item_right h3{
@@ -970,6 +989,9 @@ outline: none;
   color: #fa2c27;
   font-size: 25px;
 }
+.recent_post{
+    width: 100%;
+}
 
 .recent_post , .Categories , .tags{
     border: 1px solid rgb(218, 218, 218);
@@ -985,6 +1007,7 @@ outline: none;
     letter-spacing: 1px;
     font-size: 32px;
     font-weight: 600;
+    color: #fa2c27;
 }
 
 .recent_post h3, .Categories h3{
@@ -998,25 +1021,25 @@ outline: none;
    transition:all 0.3s;
    font-weight: 700;
    font-size: 17px;
-}  
+}
 
  h3 a:hover {
     color: #fa2c27;
     font-weight: 600;
     letter-spacing: 1px;
- } 
+ }
 
 .recent_post span a{
    color: var(--graycolor);
    letter-spacing: 1px;
    font-size: 18px;
-  
+
 }
 
 .recent_post a:hover{
     color: var(--yellowcolor);
-    
- } 
+
+ }
 
 .Categories{
     margin-top: 15px;
@@ -1180,7 +1203,7 @@ outline: none;
         box-shadow: 0 0 3px var(--yellowcolor);
 
    }
-   
+
    .contact .data_user form button{
     width: 100%;
     background-color: #fa2c27 ;
@@ -1194,7 +1217,7 @@ outline: none;
     color: #fff;
    }
 
-      
+
    .contact .data_user form button:hover{
     width: 100%;
      font-size: 25px;
@@ -1232,7 +1255,7 @@ outline: none;
 
 
 /* Start of Modal sign-up */
-  
+
 .modal-sign-up .modal-body ,
 .modal-sign-in .modal-body {
   display: flex;
@@ -1249,13 +1272,13 @@ outline: none;
 .modal-sign-in .modal-body .sign-in-form{
   width: 54%;
 }
-@media (max-width:767px) 
+@media (max-width:767px)
 {
   .modal-sign-up .modal-body .sign-in-form ,
 .modal-sign-in .modal-body .sign-in-form{
   width: 80%;
 }
-  
+
 }
 /* .modal-sign-up .modal-body .logo-img {
   margin-right: 40px;
@@ -1318,10 +1341,10 @@ outline: none;
   color: #1f1f1f;
   font-weight: 400;
   letter-spacing: 1px;
- 
+
 }
 .modal-sign-up .modal-body .sign-in-form  .social-media-sign-in hr,.modal-sign-in .modal-body .sign-in-form  .social-media-sign-in hr{
-  
+
   background-color: #fa2c27;
 }
 .modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul,.modal-sign-in .modal-body .sign-in-form  .social-media-sign-in ul{
@@ -1348,10 +1371,10 @@ outline: none;
 .modal-sign-in .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(1) {
   background-color: #3485cc;
 }
-.modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(2) , 
+.modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(2) ,
 .modal-sign-in .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(2){
   background-color: #1f1f1f;
-  
+
 }
 
 .modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(3) ,
@@ -1361,8 +1384,8 @@ outline: none;
 .modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(4) ,
 .modal-sign-in .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(4){
   background-color: #fa2c27;
- 
-  
+
+
 }
 
 .modal-sign-up .modal-body .sign-in-form  .social-media-sign-in ul li:nth-child(1) a i,
@@ -1391,3 +1414,52 @@ outline: none;
 }
 
 /* End of Modal sign-up */
+.list-inlin{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+@media (max-width:990px) {
+   .row-home-dashboard  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+  }
+
+  @media (max-width:768px) {
+    .sign-in{
+        margin-left: 10px;
+    }
+    .padding_right li{
+        /* padding: 5px 20px!important; */
+    }
+
+    .padding_right li a{
+        padding: 5px 10px!important;
+    }
+
+}
+
+.title_post{
+   color: #fa2c27;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px;
+  font-size: 25px;
+}
+
+
+.box-Services{
+    box-shadow: 1px 1px 3px #fa2c27;
+   border-radius: 10px;
+   padding: 10px;
+}
+
+.box-Services img{
+   border-radius: 10px;
+   width: 100%;
+   max-height: 300px;
+}

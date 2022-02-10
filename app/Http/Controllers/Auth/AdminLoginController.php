@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 class AdminLoginController extends Controller
 {
     use ThrottlesLogins, AuthenticatesUsers{

@@ -20,7 +20,14 @@ class Manager extends Authenticatable
 
 
     protected $fillable = [
-        'name' ,'email', 'description', 'facebook','image','twitter','github','password',
+        'name' ,
+        'email',
+        'description',
+        'facebook',
+        'image',
+        'twitter',
+        'github',
+        'password',
     ];
     protected $hidden = [
         'password', 'remember_token',

@@ -5,8 +5,12 @@
 , .page-sidebar-menu.page-sidebar-menu-hover-submenu li a > .arrow
 , .page-sidebar-menu.page-sidebar-menu-hover-submenu li .sub-menu {
     background-color: #1f1f1f !important;
-    z-index: 2;
+    z-index: 100!important;
 
+}
+
+body{
+    /* overflow-x: hidden; */
 }
 
 a:hover{
@@ -153,7 +157,7 @@ li.active i.icon-navbar-slide {
 
     width: 100%;
     /* min-height: 600px; */
-    background: url('../admin_2/images-airline-page/parallax-img-01.jpg') no-repeat;
+    background: url('../images/images-airline-page/parallax-img-01.jpg') no-repeat;
     background-size: cover;
     background-position: center -190px;
     display: flex;
@@ -338,7 +342,7 @@ li.active i.icon-navbar-slide {
 
 
 .Flight-form-sec{
-    background-image: url('../admin_2/images-airline-page/flight-form.jpg');
+    background-image: url('../images/images-airline-page/flight-form.jpg');
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1112,7 +1116,7 @@ html{
     width: 400px;
     height: 400px;
     background-color: #0588e4;
-    background-image: url("../admin_2/images-airline-page/Form-images/earth.png");
+    background-image: url("../images/images-airline-page/Form-images/earth.png");
     background-size: cover;
     border-radius: 50% !important;
     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.85);
@@ -1142,7 +1146,7 @@ html{
     position: absolute;
     width: 100%;
     height:100%;
-    background-image: url("../admin_2/images-airline-page/Form-images/cloud.png");
+    background-image: url("../images/images-airline-page/Form-images/cloud.png");
     border-radius: 50% !important;
     overflow: hidden;
     animation: animate-plane 18s linear infinite;
@@ -1359,7 +1363,7 @@ html{
 /* start availabel taxi cars */
 
 .availabel-cars-taxi .portlet {
-  background-image: url('../admin_2/images/taxi1.jpg');
+  background-image: url('../images/images-taxi/taxi1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 500px;
@@ -1480,7 +1484,7 @@ html{
 
 /* Start Section Save Taxi */
 .Save-Cars-taxi .portlet {
-  background-image: url('../admin_2/images/Save-section-taxi.jpg');
+  background-image: url('../images/images-taxi/Save-section-taxi.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 550px;
@@ -2030,7 +2034,7 @@ div.tap-TAXI-details-cars .nav-pills,  div .nav-tabs {
 }
 
 
-@media (max-width:1199px) {
+@media (max-width:990px) {
   .portlet .portlet-body .row-home-dashboard:nth-child(2)  {
       display: flex;
       justify-content: center;

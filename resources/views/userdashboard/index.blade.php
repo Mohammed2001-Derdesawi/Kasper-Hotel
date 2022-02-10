@@ -12,11 +12,7 @@
             <ul class="page-breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="index.html">Home</a>
-                    <i class="fa fa-angle-right"></i>
-                </li>
-                <li>
-                    <span>Airline</span>
+                    <a href="{{ route('dashboard') }}">Home</a>
                 </li>
             </ul>
 
@@ -31,14 +27,14 @@
                     <!-- start row in home page -->
                     <div class="row row-home-dashboard">
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="img-home-dashboard">
                                 <img src="{{asset('userdashboard/images/3.jpg')}}" alt="" class="img-responsive">
                             </div>
                         </div>
                         <!-- end cloumn in home page -->
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="details-img-home-dashboard">
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, fugiat.
                                     Nostrum explicabo et vitae harum quisquam vel cum quaerat id nam aperiam
@@ -58,7 +54,7 @@
                     <!-- start row in home page -->
                     <div class="row row-home-dashboard">
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="details-img-home-dashboard">
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, fugiat.
                                     Nostrum explicabo et vitae harum quisquam vel cum quaerat id nam aperiam
@@ -74,7 +70,7 @@
                         <!-- end cloumn in home page -->
 
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="img-home-dashboard">
                                 <img src="{{asset('userdashboard/images/1.jpg')}}" alt=""
                                     class="img-responsive">
@@ -87,14 +83,14 @@
                     <!-- start row in home page -->
                     <div class="row row-home-dashboard">
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="img-home-dashboard">
                                 <img src="{{asset('userdashboard/images/2.jpg')}}" alt="" class="img-responsive">
                             </div>
                         </div>
                         <!-- end cloumn in home page -->
                         <!-- start cloumn in home page -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="details-img-home-dashboard">
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, fugiat.
                                     Nostrum explicabo et vitae harum quisquam vel cum quaerat id nam aperiam
@@ -108,19 +104,15 @@
                             </div>
                         </div>
                         <!-- end cloumn in home page -->
-                        <div class="col-lg-6 col-xs-12 center Div_allHotel">
-                            <div class="btn_photo_hotel text-center">
-<<<<<<< HEAD
-                                <button class="btn"><a href="{{route('hotel')}}">Explore All Hotel</a></button>
-=======
-                                <button class="btn"><a href="all-hotel.html">Explore All Hotel</a></button>
->>>>>>> 71a648eda0b17e64fd7f9f755ea000f267b22001
-                                </div>
-                          </div>
                     </div>
                     <!-- end row in home page -->
-
-
+                    <div class="row row-home-dashboard">
+                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center Div_allHotel">
+                                <div class="btn_photo_hotel text-center">
+                                    <button class="btn"><a href="{{ route('hotel') }}">Explore All Hotel</a></button>
+                                    </div>
+                                </div>
+                    </div>
 
                     <!-- start message section -->
                     <section class="message_sec-home">
@@ -131,7 +123,7 @@
                         <!--./ titil_dash-->
                         <!--./ row-->
                         <div class="row">
-                            <div class="col-lg-6 col-xs-12 comment-home">
+                            <div class="col-lg-6 col-md-6 col-xs-12 comment-home">
                                 <div class="img_message-home image-responsive">
                                     <img src="{{asset('userdashboard/images/speaker-1.png')}}" alt="image message">
                                 </div>
@@ -152,7 +144,7 @@
                                 <!--./ desc_message-->
                             </div>
 
-                            <div class="col-lg-6 col-xs-12 comment-home">
+                            <div class="col-lg-6 col-md-6 col-xs-12 comment-home">
                                 <div class="img_message-home image-responsive">
                                     <img src="{{asset('userdashboard/images/speaker-1.png')}}" alt="image message">
                                 </div>
@@ -177,7 +169,7 @@
 
 
                         <div class="row">
-                            <div class="col-lg-6 col-xs-12 comment-home">
+                            <div class="col-lg-6 col-md-6 col-xs-12 comment-home">
                                 <div class="img_message-home image-responsive">
                                     <img src="{{asset('userdashboard/images/speaker-1.png')}}" alt="image message">
                                 </div>
@@ -198,7 +190,7 @@
                                 <!--./ desc_message-->
                             </div>
 
-                            <div class="col-lg-6 col-xs-12 comment-home">
+                            <div class="col-lg-6 col-md-6 col-xs-12 comment-home">
                                 <div class="img_message-home image-responsive">
                                     <img src="{{asset('userdashboard/images/speaker-1.png')}}" alt="image message">
                                 </div>

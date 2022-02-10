@@ -15,7 +15,7 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$guard = 'admin')
+    public function handle($request , Closure $next , $guard = 'admin')
     {
 
 

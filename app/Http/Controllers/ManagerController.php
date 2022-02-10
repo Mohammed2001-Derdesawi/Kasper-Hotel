@@ -237,7 +237,7 @@ class ManagerController extends Controller
 
             if($file=$request->file('image'))
             {
-               if($manager->image!=Null)
+               if($manager->image != Null || $manager->image != '')
                {
                           unlink(public_path().'/'.$manager->image);
                }
@@ -337,7 +337,7 @@ class ManagerController extends Controller
 
            if($file=$request->file('image'))
            {
-            if($manager->image!=Null)
+            if($manager->image !=Null || $manager->image != '')
             {
                        unlink(public_path().'/'.$manager->image);
             }

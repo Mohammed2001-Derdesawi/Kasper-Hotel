@@ -21,6 +21,10 @@ class AdminChart extends Controller
             $userCount[] = count($values);
         }
 
-        return view('admindashboardlayout.main-page',['data'=>$data , 'users'=>$users , 'userCount'=>$userCount]);
+        return view('admindashboardlayout.main-page',[
+            'data' => $data ,
+             'users' => $users ,
+              'userCount' => $userCount
+        ]);
     }
 }

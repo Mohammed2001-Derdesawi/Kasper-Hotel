@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use Illuminate\Contracts\Support\Htmlable;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,32 +15,27 @@ use Illuminate\Contracts\Support\Htmlable;
 |
 */
 
-Route::get('/', function () {
-    return view('maincustomersitelayouts.index');
-})->name('index');
+Route::get('/', 'IndexController@index')->name('index');
 
-Route::get('/readmore/flight', function () {
-    return view('maincustomersitelayouts.readmore-flight');
-})->name('readmore.flight');
-Route::get('/readmore/hotel', function () {
-    return view('maincustomersitelayouts.readmore-hotel');
-})->name('readmore.hotel');
-Route::get('/readmore/taxi', function () {
-    return view('maincustomersitelayouts.readmore-taxi');
-})->name('readmore.taxi');
+Route::get('/readmore/{id}', 'IndexController@readmore')->name('readmore');
+// Route::get('/readmore/hotel', function () {
+//     return view('maincustomersitelayouts.readmore-hotel');
+// })->name('readmore.hotel');
+// Route::get('/readmore/taxi', function () {
+//     return view('maincustomersitelayouts.readmore-taxi');
+// })->name('readmore.taxi');
 Auth::routes();
 
-Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
+
     Route::get('/dashboard', function () {
         return view('userdashboard.index');
     })->name('dashboard');
-    Route::get('/dashboard/allhotel', function () {
-        return view('userdashboard.allhotels');
-    })->name('allhotels');
+
+
 
 
 
@@ -58,16 +52,53 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/profile/edit', function () {
         return view('userdashboard.editprofile');
     })->name('profile.edit');
-    Route::get('/dashboard/hotel/view', function () {
-        return view('userdashboard.hotelview');
-    })->name('hotel.view');
-    Route::get('/dashboard/hotel', function () {
-        return view('userdashboard.hotel');
-    })->name('hotel');
 
 
 
-});
+//  ****************------------------------
+
+    // Pages blade
+
+// ///////////////////////////////////////////////
+
+Route::get('/dashboard/hotel/' , 'HotelController@index')->name('hotel');
+
+Route::get('/dashboard/all/hotel/{id}' , 'HotelController@showallhotel')->name('all.hotel');
+Route::get('/dashboard/page/all/hotel' , 'HotelController@pageallhotel')->name('pageallhotel');
+
+Route::get('/dashboard/hotel/search' , 'HotelController@search')->name('search');
+Route::get('/dashboard/hotel/view/{id}' , 'HotelController@showviewhotel')->name('hotel.view');
+Route::get('/dashboard/hotel/view/{id}/{idroom}' , 'HotelController@bookroom')->name('hotel.view.book');
+Route::get('/dashboard/hotel/index' , 'HotelController@store')->name('savedatabook');
+
+
+// ////////////////////////////////////////////////////////
+
+//  Airline Routes
+
+Route::get('/dashboard/airline/' , 'Airline\AirlineController@index')->name('airline');
+
+//  Taxi Routes
+
+Route::get('/dashboard/taxi/' , 'Taxi\TaxiController@index')->name('taxi');
+Route::get('/dashboard/taxi/details/{id}' , 'Taxi\TaxiController@details')->name('taxi.details');
+Route::get('/dashboard/taxi/details/{id}/book' , 'Taxi\TaxiController@booknow')->name('taxi.details.book');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
     Route::get('/roles','RoleController@index')->name('roles');
     Route::get('/roles/store','RoleController@store')->name('roles.store');
