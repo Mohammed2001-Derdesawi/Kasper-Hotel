@@ -60,7 +60,6 @@
 
                       <div class="box-Services">
                               <img src="{{asset($posts->image)}}"  alt="" class="img-responsive">
-
                               <div class="about-box-services">
                           <h4 class="title_post"> {{ $posts->title }}</h4>
                           <p >{{ $posts->text}}</p>

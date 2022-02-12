@@ -110,7 +110,7 @@ object-fit: cover;
         <div class="after-swiperhotelview" style="margin: 50px 20px;" >
             <div class="row">
                 <div class="col-lg-12"><br><br>
-                  <span class="property"><strong>Property highlights</strong></span>
+                  <span class="property"><strong>{{ $roomhotel->name }}</strong></span>
                 </div><br>
                 <div class="col-lg-12">
                      <div class="highlights">

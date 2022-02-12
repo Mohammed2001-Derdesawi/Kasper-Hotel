@@ -809,7 +809,7 @@ transform: rotate(360deg);
 }
 .listing-item.has_one_column .geodir-category-img {
 	width:40%;
-	border-radius: 10px;
+	border-radius: 10px!important;
 	top:12px;
 
 }
@@ -868,11 +868,13 @@ transform: rotate(360deg);
 	-webkit-transform: translateZ(0);
     transform: translateZ(0);
   	transition: all 2000ms cubic-bezier(.19,1,.22,1) 0ms;
+      border-radius: 10px!important;
 }
 .geodir-category-img:hover img , .gallery-item:hover img{
 	-webkit-transform: scale(1.15);
 	-moz-transform:scale(1.15);
-	transform: scale(1.15);
+      border-radius: 10px!important;
+      transform: scale(1.15);
 }
 .listing-avatar {
 	position:absolute;
@@ -2803,4 +2805,10 @@ color: #fff!important;
 
 .fa-map-marker-alt{
     color: #Fa2c27!important;
+}
+.property strong{
+     color: #fa2c27;
+     font-weight: 600;
+     letter-spacing: 0.5px;
+
 }

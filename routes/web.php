@@ -18,6 +18,9 @@ use Illuminate\Contracts\Support\Htmlable;
 Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('/readmore/{id}', 'IndexController@readmore')->name('readmore');
+// Route::get('/readmore/{id}/comment', 'IndexController@store')->name('comment');
+Route::post('save-comment','IndexController@save_comment');
+
 // Route::get('/readmore/hotel', function () {
 //     return view('maincustomersitelayouts.readmore-hotel');
 // })->name('readmore.hotel');

@@ -17,6 +17,7 @@ class CountryController extends Controller
     {
         $countries=Country::paginate(10);
         $manager=Manager::all();
+
         return view('admindashboardlayout.country',compact('countries','manager'));
     }
 

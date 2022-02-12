@@ -16,6 +16,9 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+{{--  Ajax  --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 </head>
 <body>
 <!-- start icon top -->
@@ -177,7 +180,7 @@
 
 
   <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
-  {{-- @if($errors->has('email') || $errors->has('password'))
+  @if($errors->has('email') || $errors->has('password'))
   <script>
       console.log("احاااااااااااااااا");
   $(function() {
@@ -186,8 +189,8 @@
       });
   });
 
-  </script> --}}
-  {{-- @endif --}}
+  </script>
+   @endif
   <script type="text/javascript">
     $.ajaxSetup({
        headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
@@ -262,11 +265,11 @@
     </script>
 
 
-   {{-- <livewire:sign-in/> --}}
+   {{--  <livewire:sign-in/>  --}}
 
-  {{-- @livewireScripts --}}
+  @livewireScripts
 
-  
+
     <script type="text/javascript">
     </script>
    <script src="{{asset("maincustomersiteresources/Js/jquery.js")}}"></script>

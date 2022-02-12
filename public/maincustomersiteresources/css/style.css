@@ -247,6 +247,11 @@ padding: 0 !important;
     width: 100%;
     font-weight: 600;
     padding-top: 0;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: clip;
+    /* white-space: nowrap; */
+    height: 80px;
 }
 
 
@@ -1072,12 +1077,16 @@ outline: none;
     background-color: var(--weightcolor);
 }
 
-.titil_message,.titil_contact{
+.titil_message h2,.titil_contact h2{
     color: var(--blackcolor);
-    font-weight: 600;
-    font-size: 25px;
-    letter-spacing: 1px;
+    font-weight: bold!important;
+    font-size: 28px;
+    letter-spacing: 0.5px;
     margin-bottom: 20px;
+}
+
+.titil_message h2 strong{
+ color: #fa2c27;
 }
 
 .item{
@@ -1164,13 +1173,15 @@ outline: none;
   }
 
   .contact .data_user form {
-   width: 70%;
+   /* width: 70%; */
+   /* display: flex; */
   }
 
-  .contact .data_user form input{
-    width: 48%;
+  .contact .data_user  input{
+    width: 31.5%;
     height: 55px;
     margin: 30px 0;
+    margin-right: 10px;
    background-color: rgb(238, 238, 238);
    color: var(--graycolor);
    font-weight: 600;
@@ -1181,30 +1192,30 @@ outline: none;
 
    }
 
-   .contact .data_user form input:focus{
+   .contact .data_user  input:focus{
    outline: none;
    }
 
-   .contact .data_user form input.email{
+   .contact .data_user  input.email{
        margin-right: 20px;
        box-shadow: 0 0 3px var(--yellowcolor);
    }
 
-   .contact .data_user form textarea{
+   .contact .data_user  textarea{
         border: 2px solid rgb(218, 218, 218);
         padding: 10px;
         font-weight: 600;
         letter-spacing: 1px ;
-        width: 100%;
+        width: 97%;
         margin-bottom: 30px;
         background-color: rgb(238, 238, 238);
         border-radius: 5px;
         resize: none;
         box-shadow: 0 0 3px var(--yellowcolor);
-
+       height: 200px;
    }
 
-   .contact .data_user form button{
+   .contact .data_user  button{
     width: 100%;
     background-color: #fa2c27 ;
     font-size: 25px;
@@ -1218,7 +1229,7 @@ outline: none;
    }
 
 
-   .contact .data_user form button:hover{
+   .contact .data_user  button:hover{
     width: 100%;
      font-size: 25px;
     font-weight: 600;
@@ -1278,6 +1289,10 @@ outline: none;
 .modal-sign-in .modal-body .sign-in-form{
   width: 80%;
 }
+
+.contact .data_user  input{
+    width: 100%;
+   }
 
 }
 /* .modal-sign-up .modal-body .logo-img {
@@ -1427,7 +1442,9 @@ outline: none;
         align-items: center;
         flex-direction: column-reverse;
     }
+
   }
+
 
   @media (max-width:768px) {
     .sign-in{
@@ -1463,3 +1480,22 @@ outline: none;
    width: 100%;
    max-height: 300px;
 }
+
+.nocomment{
+    color: #fa2c27;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.textareacomment{
+    color: black!important;
+    text-shadow: 0.5px 0.5px 1px  #fa2c27;
+    font-weight: 600!important;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+}
+@media  (min-width:769px) and(max-width:990px) {
+    .contact .data_user  input {
+      width: 28%!important;
+      margin: 0;
+       }
+  }

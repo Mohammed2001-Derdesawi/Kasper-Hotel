@@ -75,7 +75,7 @@
                        <div class="geodir-category-content fl-wrap">
                            <div class="geodir-category-content-title fl-wrap">
                                <div class="geodir-category-content-title-item">
-                                   <h3 class="title-sin_map"><a href="{{ url('dashboard/hotel/view/'.$datahotels->country_id) }}">{{ $datahotels->name }}</a></h3>
+                                   <h3 class="title-sin_map"><a href="{{ url('dashboard/hotel/view/'.$datahotels->id) }}">{{ $datahotels->name }}</a></h3>
                                    <div class="geodir-category-location fl-wrap"><a href="#0" class="map-item">
                                        <i class="fas fa-map-marker-alt" style="color:#Fa2c27!important"></i>{{ $datahotels->country->name }}</a></div>
                                </div>

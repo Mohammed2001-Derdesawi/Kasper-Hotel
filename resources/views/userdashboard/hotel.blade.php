@@ -69,7 +69,7 @@
                         <a href="{{ url('dashboard/all/hotel/'.$datacountrys->id)  }}">                         <div class="overlay">
                               <div class="item_content_photo">
                                   <button class="btn btn-danger">
-                                      <i class="fas fa-hotel icon_hotel"></i>
+                                      <i class="fas fa-hotel icon_h otel"></i>
                                       {{ $datacountrys->hotels()->count() }}
                                     </button>
                                    </div>

@@ -89,8 +89,10 @@ class HotelController extends Controller
 
 
     public function bookroom($id , $idroom){
-        $roomhotel = Room::paginate(8);
+        // = Room::paginate(8);
         $idroom = Room::FindOrfail($idroom);
+        $roomhotel  = Hotel::findOrfail($id);
+
         return view('userdashboard.hotelviewBook' ,[
             'roomhotel' => $roomhotel ,
             'idroom'  => $idroom
